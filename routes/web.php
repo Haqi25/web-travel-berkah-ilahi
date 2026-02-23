@@ -1,7 +1,6 @@
 <?php
 
+use App\Http\Controllers\guest\homeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('guest.home');
-});
+Route::get('/', [homeController::class, 'index'])->name('schedules');

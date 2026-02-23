@@ -15,15 +15,18 @@
                                                 <div class="fruite-img">
                                                     <img src="img/carousel-4.jpeg" class="img-fluid w-100 rounded-top" alt="">
                                                 </div>
-                                                <div class="text-white bg-info px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">Avanza</div>
+                                                 @foreach($schedules as $schedule)
+                                                <div class="text-white bg-info px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">{{$schedule->vehicle->name}}</div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                    <h4>Banjarbaru - Bandara</h4>
+                                                    <h4>{{$schedule->route->origin}} - {{$schedule->route->destination}}</h4>
                                                     <p>20 Feb 2026 | 08:00</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
-                                                        <p class="text-dark fs-5 fw-bold mb-0">Rp 100.000</p>
+                                                        <p class="text-dark fs-5 fw-bold mb-0">Rp{{ number_format($schedule->route->price, 0, ',', '.') }}</p>
                                                         <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa  fa-calendar me-2 text-primary"></i> Lihat Detail</a>
                                                     </div>
                                                 </div>
+                                                @endforeach
+
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-lg-4 col-xl-3 custom-card">
