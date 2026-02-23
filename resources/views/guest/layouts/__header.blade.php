@@ -5,8 +5,12 @@
     <meta charset="utf-8">
     <title>Travel Berkah Ilahi</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta name="description"
+        content="Travel Berkah Ilahi - Melayani rute Banjarmasin, Sungai Danau, Angsana, Batulicin, Siayuh, hingga Geronggang. Kepuasan anda adalah kebahagiaan kami.">
+
+    <meta name="keywords"
+        content="travel banjarmasin, travel batulicin, travel sungai danau, travel angsana, travel geronggang, berkah ilahi">
+
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +19,7 @@
         href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap"
         rel="stylesheet">
 
-    <link rel="Icon" type="image/svg" href="/img/travel-logo-2.svg">
+    <link rel="Icon" type="image/svg" class="rounded-lg" href="/img/travel-logo-2.svg">
     <!-- Icon Font Stylesheet -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">

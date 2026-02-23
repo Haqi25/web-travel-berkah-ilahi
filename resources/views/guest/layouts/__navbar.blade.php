@@ -30,7 +30,7 @@
                 </div>
 
                 <div class=" d-xl-flex flex-shink-0 align-items-center">
-                    <a href="#" class="btn btn-info rounded-pill px-4 text-white">Login</a>
+                    <a href="https://wa.me/6282253553459" class="btn btn-light-green rounded-pill px-4 text-white"><i class="bi bi-whatsapp"> </i>Hubungi Kami</a>
                 </div>
             </div>
         </nav>

@@ -20,6 +20,8 @@
 
     @include('guest.layouts.__footer')
 
+    
+      <a href="https://wa.me/6282253553459"  class="whatsapp-button group rounded-lg flex items-center justify-end gap-2 btn btn-light-green  hover:btn-light-green text-white transition-all duration-300 rounded- shadow-lg hover:shadow-xl overflow-hidden wa-icon"><i class="bi bi-whatsapp"></i></a>
     <!-- Back to Top -->
     <a href="#" class="btn btn-info border-3 border-info rounded-circle back-to-top"><i
             class="fa fa-arrow-up"></i></a>

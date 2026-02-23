@@ -29,8 +29,8 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="footer-item">
                             <h4 class="text-light mb-3">Hubungi Kami</h4>
-                            <p>Alamat: Jl. Mawar No.2000 Bikini Bottom</p>
-                            <p>Email: bayugaming@gmail.com</p>
+                            <p>Alamat: Jl. Mawar No.2000 Pakisaji</p>
+                            <p>Email: bayukurniawan@gmail.com</p>
                             <p>Telp: 0892-3452-0621</p>
                         </div>
                     </div>

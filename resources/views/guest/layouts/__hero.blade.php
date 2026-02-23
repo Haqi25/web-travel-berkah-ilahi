@@ -3,8 +3,8 @@
             <div class="container py-5">
                 <div class="row g-5 align-items-center">
                     <div class="col-md-12 col-lg-7">
-                        <h4 class="mb-3 text-info">100% Amanah</h4>
-                        <h1 class="mb-5 display-3 text-primary">Travel Aman & Nyaman</h1>
+                        <h4 class="mb-3 text-info">Insya Allah Amanah</h4>
+                        <h1 class="mb-5 display-3 text-primary">Kepuasaan anda adalah kebahagiaan kami</h1>
                         <div class="position-relative mx-auto">
                             
                             <div class=" d-xl-flex flex-shink-0 align-items-center">
@@ -24,7 +24,7 @@
                                   
                                 </div>
                                 <div class="carousel-item rounded">
-                                    <img src="img/carousel-4.jpeg" class="img-fluid w-100 h-100 rounded" alt="Second slide">
+                                    <img src="img/carousel-5.jpeg" class="img-fluid w-100 h-100 rounded" alt="Third slide">
                                   
                                 </div>
                             </div>
