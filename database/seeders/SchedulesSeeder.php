@@ -16,7 +16,7 @@ class SchedulesSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('schedules')->insert([
+        DB::table('schedules')->insertOrIgnore([
             
                 'route_id' => 1,
                 'driver_id' => 1,
