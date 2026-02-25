@@ -13,7 +13,7 @@ class homeController extends Controller
      */
     public function index()
     {
-        $schedules = Schedule::where('status', 'ACTIVE')->orderBy('updated_at', 'asc')->get();
+        $schedules = Schedule::where('status', 'ACTIVE')->orderBy('updated_at', 'asc')->get()->take(6);
 
         return view('guest.home', compact('schedules'));
     }
