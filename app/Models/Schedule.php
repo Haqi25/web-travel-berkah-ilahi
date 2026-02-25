@@ -9,8 +9,11 @@ class Schedule extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['route_id', 'driver_id', 'vehicle_id', 'departure_time', 'available_seat', 'status', 'created_at', 'updated_at'];
+    protected $fillable = ['route_id', 'driver_id', 'vehicle_id',  'available_seat', 'status', 'created_at', 'updated_at'];
     protected $dates = ['deleted_at'];
+    protected $casts = [
+        'departure_time' => 'datetime',
+    ];
 
     public function route(){
         return $this->belongsTo(Route::class);
