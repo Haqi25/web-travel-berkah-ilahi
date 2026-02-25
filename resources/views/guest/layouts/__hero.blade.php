@@ -8,7 +8,7 @@
                         <div class="position-relative mx-auto">
                             
                             <div class=" d-xl-flex flex-shink-0 align-items-center">
-                    <a href="#" class="btn btn-info rounded-pill px-4 text-white">Pesan Sekarang</a>
+                    <a href="/schedule" class="btn btn-info rounded-pill px-4 text-white">Pesan Sekarang</a>
                 </div>
                         </div>
                     </div>
