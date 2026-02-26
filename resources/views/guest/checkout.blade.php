@@ -28,21 +28,21 @@
                         <div class="col-md-12 col-lg-4">
                             <div class="form-item w-100">
                                 <label class="form-label my-3">Nama Lengkap<sup>*</sup></label>
-                                <input type="text" name="fullname" class="form-control" placeholder="Masukka nama"
+                                <input type="text" name="fullname" class="form-control-custom" placeholder="Masukka nama"
                                     required>
                             </div>
                         </div>
                         <div class="col-md-12 col-lg-4">
                             <div class="form-item w-100">
                                 <label class="form-label my-3">Nomor WhatsApp<sup>*</sup></label>
-                                <input type="text" name="phone" class="form-control"
+                                <input type="text" name="phone" class="form-control-custom"
                                     placeholder="Masukkan Nomor WhatsApp Anda" required>
                             </div>
                         </div>
                         <div class="col-md-12 col-lg-4">
                             <div class="form-item w-100">
                                 <label class="form-label my-3">Pilih kursi<sup>*</sup></label>
-                                <select id="" name="" class="form-control"  required style="background-color: #ffffff; !important">
+                                <select id="" name="" class="form-control-custom"  required style="background-color: #ffffff; !important">
                                     <option value="">-- pilih kursi --</option>
                                     <option value="apple">Apple</option>
                                     <option value="banana">Banana</option>
@@ -58,7 +58,7 @@
                         <div class="col-md-12 col-lg-12">
                             <div class="form-item">
                                 <label class="form-label my-3">Alamat Penjemputan <sup>*</sup></label>
-                                <textarea name="notes" class="form-control" spellcheck="false" cols="30" rows="5"
+                                <textarea name="notes" class="form-control-custom" spellcheck="false" cols="30" rows="5"
                                     placeholder="Isi alamat penjemputan" required></textarea>
                             </div>
                         </div>
@@ -130,12 +130,12 @@
                                     <h5 class="mb-0 ps-4 me-4">Metode Pembayaran</h5>
                                     <div class="mb-0 pe-4 mb-3 pe-5">
                                         <div class="form-check">
-                                            <input type="radio" class="form-check-input bg-danger border-0"
+                                            <input type="radio" class="form-check-input bg-info border-0"
                                                 id="qris" name="payment_method" value="qris">
                                             <label class="form-check-label" for="qris">QRIS</label>
                                         </div>
                                         <div class="form-check">
-                                            <input type="radio" class="form-check-input bg-danger border-0"
+                                            <input type="radio" class="form-check-input bg-info border-0"
                                                 id="cash" name="payment_method" value="cash">
                                             <label class="form-check-label" for="cash">Tunai</label>
                                         </div>
@@ -145,7 +145,7 @@
 
                             <div class="d-flex justify-content-end">
                                 <button type="button" id=""
-                                    class="btn border-secondary py-3 text-uppercase text-danger">Konfirmasi
+                                    class="btn border-secondary py-3 text-uppercase text-primary">Konfirmasi
                                     Pesanan</button>
                             </div>
 
