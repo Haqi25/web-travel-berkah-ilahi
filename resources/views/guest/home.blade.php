@@ -31,7 +31,7 @@
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                                     <p class="text-dark fs-5 fw-bold mb-0">Rp{{ number_format($schedule->route->price, 0, ',', '.') }}</p>
                                                    
-                                                    <a  onclick="#" class="btn border border-info rounded-pill px-3 text-primary"><i class="fa fa-share me-2 text-primary"></i> Lihat di halaman jadwal</a>
+                                                    <a  onclick="#" a href="{{route('schedules')}}" class="btn border border-secondary   rounded-pill px-3 text-primary"><i class="fa fa-share me-2 text-primary"></i> Lihat di halaman jadwal</a>
                                                     
                                                 </div>
                                                   
