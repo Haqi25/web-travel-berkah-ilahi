@@ -569,6 +569,25 @@
     overflow: hidden; 
 }
 
+ .form-control-custom {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #747d88;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 10px;
+
+    }
+
+
 
 @keyframes fade-in {
   from {
