@@ -36,4 +36,6 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('assets/guest/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/guest/css/invoice.css') }}" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
