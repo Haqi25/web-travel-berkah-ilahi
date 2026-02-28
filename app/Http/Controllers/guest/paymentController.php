@@ -139,12 +139,12 @@ class paymentController extends Controller
     ]);
 }
 
-// public function checkoutSuccess($orderId){
-//     $order = Order::where('booking_code', $orderId)->first();
-//     if(!$order){
-//           return redirect()->route('schedules')->with('error', 'Pesanan tidak ditemukan');
-//     }
+public function checkoutSuccess($orderId){
+    $order = Order::where('booking_code', $orderId)->first();
+    if(!$order){
+          return redirect()->route('schedules')->with('error', 'Pesanan tidak ditemukan');
+    }
 
-//     return view('guest.success', compact('order'));
-// }
+    return view('guest.success', compact('order'));
+}
 }
