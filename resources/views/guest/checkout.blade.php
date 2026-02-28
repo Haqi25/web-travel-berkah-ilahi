@@ -20,15 +20,17 @@
 <div class="container-fluid py-5">
     <div class="container py-5">
         <h1 class="mb-4">Detail Pembayaran</h1>
-        <form id= "checkout-form" action="" method="POST">
+        <form id= "" action="{{route('payment')}}" method="POST">
             @csrf
             <div class="row g-5">
                 <div class="col-md-12 col-lg-6 col-xl-6">
                     <div class="row">
                         <div class="col-md-12 col-lg-4">
                             <div class="form-item w-100">
+                               
+                                <input type="hidden" id="id" name="id" value="{{$schedule->id}}" required>
                                 <label class="form-label my-3">Nama Lengkap<sup>*</sup></label>
-                                <input type="text" name="fullname" class="form-control-custom" placeholder="Masukka nama"
+                                <input type="text" name="name" class="form-control-custom" placeholder="Masukkan nama"
                                     required>
                             </div>
                         </div>
@@ -42,7 +44,7 @@
                         <div class="col-md-12 col-lg-4">
                             <div class="form-item w-100">
                                 <label class="form-label my-3">Pilih kursi<sup>*</sup></label>
-                                <select id="" name="" class="form-control-custom"  required style="background-color: #ffffff; !important">
+                                <select id="" name="" class="form-control-custom"  style="background-color: #ffffff; !important">
                                     <option value="">-- pilih kursi --</option>
                                     <option value="apple">Apple</option>
                                     <option value="banana">Banana</option>
@@ -59,7 +61,7 @@
                             <div class="form-item">
                                 <label class="form-label my-3">Alamat Penjemputan <sup>*</sup></label>
                                 <textarea name="notes" class="form-control-custom" spellcheck="false" cols="30" rows="5"
-                                    placeholder="Isi alamat penjemputan" required></textarea>
+                                    placeholder="Isi alamat penjemputan"></textarea>
                             </div>
                         </div>
                     </div>
@@ -123,7 +125,7 @@
                                 </div>
                                 <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
                                     <h4 class="mb-0 ps-4 me-4">Total</h4>
-                                    <h5 class="mb-0 pe-4">Rp{{ number_format(0) }}</h5>
+                                    <h5 class="mb-0 pe-4">Rp{{ number_format($schedule->route->price, 0, ',', '.') }}</h5>
                                 </div>
 
                                 <div class="py-4 mb-4 d-flex justify-content-between">
@@ -142,12 +144,14 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="d-flex justify-content-end">
-                                <button type="button" id=""
-                                    class="btn border-secondary py-3 text-uppercase text-primary">Konfirmasi
+                           
+                            <div  class="d-flex justify-content-end">
+                                <button  type="submit" id=""  
+                                   class="btn border-secondary py-3 text-uppercase text-primary" >Konfirmasi
                                     Pesanan</button>
                             </div>
+                        
+                       
 
                         </div>
                     </div>
