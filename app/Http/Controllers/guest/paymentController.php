@@ -101,43 +101,43 @@ class paymentController extends Controller
 
 }
 
-//   public function handleCallback(Request $request)
-// {
+  public function handleCallback(Request $request)
+{
 
-//     $callbackToken = $request->header('x-callback-token');
+    $callbackToken = $request->header('x-callback-token');
 
-//     if($callbackToken !== env('XENDIT_CALLBACK_TOKEN')){
-//         return response()->json([
-//             'status' => 'error',
-//             'message'=> 'Token tidak valid'
-//         ], 403);
-//     }
-//     $data = $request->all();
-//     $externalId = $data['external_id']; 
-//     $status = $data['status']; 
+    if($callbackToken !== env('XENDIT_CALLBACK_TOKEN')){
+        return response()->json([
+            'status' => 'error',
+            'message'=> 'Token tidak valid'
+        ], 403);
+    }
+    $data = $request->all();
+    $externalId = $data['external_id']; 
+    $status = $data['status']; 
 
   
-//     $order = Order::where('booking_code', $externalId)->first();
+    $order = Order::where('booking_code', $externalId)->first();
 
-//     if (!$order) {
+    if (!$order) {
        
         
         
-//         return response()->json([
-//             'status' => 'error',
-//             'message' => 'Order tidak ditemukan'
-//         ], 404);
-//     }
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Order tidak ditemukan'
+        ], 404);
+    }
 
-//     $order->status = $status; 
-//     $order->save();
+    $order->status = $status; 
+    $order->save();
 
    
-//     return response()->json([
-//         'status' => 'success',
-//         'message' => 'Berhasil update status ke ' . $status
-//     ]);
-// }
+    return response()->json([
+        'status' => 'success',
+        'message' => 'Berhasil update status ke ' . $status
+    ]);
+}
 
 // public function checkoutSuccess($orderId){
 //     $order = Order::where('booking_code', $orderId)->first();
