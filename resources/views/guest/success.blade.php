@@ -17,7 +17,7 @@
                 <div class="invoice-booking-code">
                     <small>Kode Booking</small>
                     <div class="code">
-                        ORD-1131313-1213
+                  {{$order->booking_code}}
                         {{-- {{ $invoice['bookingCode'] }} --}}
                     </div>
                 </div>
@@ -29,14 +29,14 @@
                         <div class="invoice-route">
                             <span class="dot"></span>
                             {{-- {{ $schedule['origin'] }} --}}
-                            Banjarmasin
+                            {{$order->schedule->route->origin}}
                             <span class="arrow">→</span>
                             {{-- {{ $schedule['destination'] }} --}}
-                            Geronggang
+                          {{$order->schedule->route->destination}}
                         </div>
                         <div class="invoice-time">
                             {{-- {{ $schedule['departureTime'] }} – {{ $schedule['arrivalTime'] }} · {{ $schedule['vehicleType'] }} --}}
-                            12.00 - 13.00
+                           {{ $order->schedule->departure_time->format('d M Y | H:i') }} 
                         </div>
                     {{-- @endif --}}
 
@@ -47,12 +47,12 @@
                         <div class="invoice-detail-item">
                             <label>Penumpang</label>
                             {{-- <span>{{ $invoice['passengerName'] }}</span> --}}
-                            Baihawi
+                          {{ $order->user->name}}
                         </div>
                         <div class="invoice-detail-item">
                             <label>Telepon</label>
                             {{-- <span>{{ $invoice['phone'] }}</span> --}}
-                            089112332
+                            {{$order->user->phone}}
                         </div>
                         <div class="invoice-detail-item">
                             <label>Kursi</label>
@@ -75,7 +75,7 @@
                             <label>Total</label>
                             <div class="amount">
                                 {{-- {{ $formattedPrice }} --}}
-                             Rp{{ number_format(100000, 0, ',', '.') }}                       </div>
+                             Rp{{ number_format($order->total_price, 0, ',', '.') }}                       </div>
                         </div>
                         <span class="invoice-status  success
                         {{-- {{ $invoice['status'] === 'Verifikasi' ? 'verifikasi' : 'success' }} --}}
@@ -119,11 +119,7 @@
         if (actions) actions.style.display = 'none';
         const opt = {
             margin: 0,
-            filename: 
-            
-            'invoice.ORD-HAWi.pdf'
-            
-            ,
+            filename: 'invoice-{{$order->booking_code}}.pdf',
             image: { type: 'jpeg', quality: 0.98 },
             html2canvas: { scale: 2 },
             jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
