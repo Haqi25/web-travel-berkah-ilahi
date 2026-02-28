@@ -46,7 +46,7 @@
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                                     <p class="text-dark fs-5 fw-bold mb-0">Rp{{ number_format($schedule->route->price, 0, ',', '.') }}</p>
                                                    
-                                                    <a  onclick="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-cart  me-2 text-primary"></i> Checkout sekarang</a>
+                                                    <a  href="{{route('checkout', $schedule->id)}}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-cart  me-2 text-primary"></i> Checkout sekarang</a>
                                                     
                                                 </div>
                                                   
