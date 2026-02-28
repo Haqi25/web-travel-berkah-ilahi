@@ -21,85 +21,85 @@ class paymentController extends Controller
         $schedule = Schedule::find($id);
 
         return view('guest.checkout', compact('schedule'));
-       
+      
 
 
     }
 
-//    public function storeOrder(Request $request){
+   public function storeOrder(Request $request){
     
 
-//     $schedule = Schedule::find($request->id);
+    $schedule = Schedule::find($request->id);
 
-//     if(!$schedule){
-//         return response()->json([
-//             'status' => 'error',
-//             'message' => 'Data tidak ditemukan'
-//         ]);
+    if(!$schedule){
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Data tidak ditemukan'
+        ]);
 
 
-//     }
+    }
 
-//     $validator = Validator::make($request->all(), [
-//         'name' => 'required',
-//         'phone' => 'required',
-//     ]);
+    $validator = Validator::make($request->all(), [
+        'name' => 'required',
+        'phone' => 'required',
+    ]);
 
-//     if($validator->fails()){
-//         return redirect()->route('checkout')->withErrors($validator);
-//       };
+    if($validator->fails()){
+        return redirect()->route('checkout')->withErrors($validator);
+      };
 
-//       $user = User::firstOrCreate([
-//         'name' => $request->input('name'),
-//         'phone' => $request->input('phone'),
+      $user = User::firstOrCreate([
+        'name' => $request->input('name'),
+        'phone' => $request->input('phone'),
       
-//         'role_id' => 2
-//       ]);
+        'role_id' => 2
+      ]);
 
    
 
-//       $order = Order::create([
-//         'booking_code' => 'ORD-'.time(),
-//         'user_id' => $user->id,
-//         'schedule_id' => $schedule->id,
-//         'status' => 'pending',
-//         'total_price' => $schedule->route->price
+      $order = Order::create([
+        'booking_code' => 'ORD-'.time(),
+        'user_id' => $user->id,
+        'schedule_id' => $schedule->id,
+        'status' => 'pending',
+        'total_price' => $schedule->route->price
 
-//       ]);
+      ]);
 
-//       Configuration::setXenditKey(env('XENDIT_SECRET_KEY'));
+      Configuration::setXenditKey(env('XENDIT_SECRET_KEY'));
 
-//       $apiInstance = new InvoiceApi();
+      $apiInstance = new InvoiceApi();
 
-//       $create_invoice_request = new CreateInvoiceRequest([
-//        'external_id'      => $order->booking_code,
-//         'amount'           => (float) $order->total_price,
-//         'invoice_duration' => 86400,
-//         'description'      => 'Pembayaran untuk order ' . $order->booking_code,
-//         'customer'         => [
-//             'given_names' => $user->name,
-//             'mobile_number' => $user->phone 
-//         ],
-//         'success_redirect_url' => "http://localhost:8000/success/" . $order->booking_code,
-//         'failed_redirect_url' => "http://localhost:8000",
-//         ]);
+      $create_invoice_request = new CreateInvoiceRequest([
+       'external_id'      => $order->booking_code,
+        'amount'           => (float) $order->total_price,
+        'invoice_duration' => 86400,
+        'description'      => 'Pembayaran untuk order ' . $order->booking_code,
+        'customer'         => [
+            'given_names' => $user->name,
+            'mobile_number' => $user->phone 
+        ],
+        'success_redirect_url' => "http://localhost:8000/success/" . $order->booking_code,
+        'failed_redirect_url' => "http://localhost:8000",
+        ]);
 
-//    try {
-//     $result = $apiInstance->createInvoice($create_invoice_request);
+   try {
+    $result = $apiInstance->createInvoice($create_invoice_request);
 
-//     $order->invoice_url = $result['invoice_url'];
-//     $order->save();
+    $order->invoice_url = $result['invoice_url'];
+    $order->save();
 
     
-//     return redirect($result['invoice_url']);
+    return redirect($result['invoice_url']);
 
-// } catch (\Xendit\XenditSdkException $e) {
-//     return redirect()->back()->with('error', 'Gagal membuat invoice: ' . $e->getMessage());
-// }
+} catch (\Xendit\XenditSdkException $e) {
+    return redirect()->back()->with('error', 'Gagal membuat invoice: ' . $e->getMessage());
+}
 
 
 
-// }
+}
 
 //   public function handleCallback(Request $request)
 // {
