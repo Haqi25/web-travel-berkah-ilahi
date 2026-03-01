@@ -63,11 +63,12 @@ class paymentController extends Controller
         'user_id' => $user->id,
         'schedule_id' => $schedule->id,
         'status' => 'pending',
-        'total_price' => $schedule->route->price
+        'total_price' => $schedule->route->price,
+        'payment_method' => 'gateway',
 
       ]);
 
-      Configuration::setXenditKey(env('XENDIT_SECRET_KEY'));
+      Configuration::setXenditKey(config('xendit.xendit.api_key'));
 
       $apiInstance = new InvoiceApi();
 
@@ -106,7 +107,7 @@ class paymentController extends Controller
 
     $callbackToken = $request->header('x-callback-token');
 
-    if($callbackToken !== env('XENDIT_CALLBACK_TOKEN')){
+    if($callbackToken !== config('xendit.xendit.callback_token')){
         return response()->json([
             'status' => 'error',
             'message'=> 'Token tidak valid'
@@ -115,6 +116,9 @@ class paymentController extends Controller
     $data = $request->all();
     $externalId = $data['external_id']; 
     $status = $data['status']; 
+    $payment_method = $data['payment_method'];
+    $payment_channel = $data['payment_channel'];
+    
 
   
     $order = Order::where('booking_code', $externalId)->first();
@@ -130,6 +134,8 @@ class paymentController extends Controller
     }
 
     $order->status = $status; 
+    $order->payment_channel = $payment_channel;
+    $order->payment_method = $payment_method;
     $order->save();
 
    

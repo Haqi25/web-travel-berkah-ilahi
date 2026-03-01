@@ -18,6 +18,8 @@ class Order extends Model
         'payment_url',
         'total_price',
         'invoice_url',
+        'payment_channel',
+        'payment_method',
         'created_at',
         'updated_at'
 
