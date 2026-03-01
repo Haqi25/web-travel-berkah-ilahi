@@ -60,10 +60,16 @@
                             {{-- <span>{{ $invoice['seat'] }}</span> --}}
                         </div>
                         <div class="invoice-detail-item">
-                            <label>Pembayaran</label>
+                            <label>Metode pembayaran</label>
                             {{-- <span style="text-transform: capitalize;">{{ $invoice['paymentMethod'] }}</span> --}}
-                            cash
+                            {{$order->payment_method}}
 
+                        </div>
+                        <div class="invoice-detail-item">
+                        <label>
+                        Channel
+                        </label>
+                       {{$order->payment_channel}}
                         </div>
                     </div>
 
@@ -115,8 +121,7 @@
         const element = document.getElementById('printRef');
         const header = element.querySelector('.invoice-header')
         const actions = element.querySelector('.invoice-actions');
-        if(header) actions.style.display = 'none';
-        if (actions) actions.style.display = 'none';
+       
         const opt = {
             margin: 0,
             filename: 'invoice-{{$order->booking_code}}.pdf',
