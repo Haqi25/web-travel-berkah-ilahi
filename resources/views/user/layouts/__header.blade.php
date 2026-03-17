@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Travel Berkah Ilahi</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description"
+        content="Travel Berkah Ilahi - Melayani rute Banjarmasin, Sungai Danau, Angsana, Batulicin, Siayuh, hingga Geronggang. Kepuasan anda adalah kebahagiaan kami.">
+
+    <meta name="keywords"
+        content="travel banjarmasin, travel batulicin, travel sungai danau, travel angsana, travel geronggang, berkah ilahi">
+
+<!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="Icon" type="image/svg" class="rounded-lg" href="/img/travel-logo-2.svg">
+   <link href="{{env('APP_URL')}}/assets/guest/css/app.css" rel="stylesheet">
+    {{-- <link href="{{ asset('assets/guest/css/style.css') }}" rel="stylesheet"> --}}
+    <link href="{{asset('assets/guest/css/schedule.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/guest/css/checkout.css')}}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Flatpickr CSS for Date Picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
