@@ -13,6 +13,7 @@ use Xendit\Configuration;
 use Xendit\Invoice\InvoiceApi;
 use Xendit\Invoice\CreateInvoiceRequest;
 use Illuminate\Support\Facades\Validator;
+use Xendit\Invoice\CustomerObject;
 class paymentController extends Controller
 {
     public function checkout($id){
@@ -20,7 +21,7 @@ class paymentController extends Controller
 
         $schedule = Schedule::find($id);
 
-        return view('guest.checkout', compact('schedule'));
+        return view('user.checkout', compact('schedule'));
       
 
 
@@ -49,12 +50,27 @@ class paymentController extends Controller
         return redirect()->route('checkout')->withErrors($validator);
       };
 
-      $user = User::firstOrCreate([
-        'name' => $request->input('name'),
-        'phone' => $request->input('phone'),
-      
-        'role_id' => 2
-      ]);
+     
+$phoneInput = $request->input('phone');
+
+
+$formattedPhone = $phoneInput;
+
+if (str_starts_with($phoneInput, '0')) {
+    $formattedPhone = '+62' . substr($phoneInput, 1);
+} elseif (str_starts_with($phoneInput, '8')) {
+    $formattedPhone = '+62' . $phoneInput;
+} elseif (!str_starts_with($phoneInput, '+62')) {
+ 
+    $formattedPhone = '+62' . $phoneInput;
+}
+
+$user = User::firstOrCreate([
+    'phone' => $formattedPhone, 
+], [
+    'name' => $request->input('name'),
+    'role_id' => 2
+]);
 
    
 
@@ -72,15 +88,18 @@ class paymentController extends Controller
 
       $apiInstance = new InvoiceApi();
 
+   $customer = new CustomerObject([
+    'given_names' => $user->name,
+    'mobile_number' => $user->phone 
+]);
+
       $create_invoice_request = new CreateInvoiceRequest([
        'external_id'      => $order->booking_code,
         'amount'           => (float) $order->total_price,
         'invoice_duration' => 86400,
         'description'      => 'Pembayaran untuk order ' . $order->booking_code,
-        'customer'         => [
-            'given_names' => $user->name,
-            'mobile_number' => $user->phone 
-        ],
+        'customer'         => $customer,
+          
         'success_redirect_url' => "http://localhost:8000/success/" . $order->booking_code,
         'failed_redirect_url' => "http://localhost:8000",
         ]);
