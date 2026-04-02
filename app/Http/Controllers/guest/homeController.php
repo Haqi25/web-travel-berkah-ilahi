@@ -15,7 +15,7 @@ class homeController extends Controller
     {
         $schedules = Schedule::where('status', 'ACTIVE')->orderBy('updated_at', 'asc')->get()->take(6);
 
-        return view('guest.home', compact('schedules'));
+        return view('user.landingPage', compact('schedules'));
     }
 
     /**
