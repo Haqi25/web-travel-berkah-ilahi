@@ -6,116 +6,29 @@
         <div class="container">
             <h2 class="section-title slide-in-up">Rute perjalaan saat ini</h2>
             <p class="section-subtitle">Jelajahi keindahan Kalimantan Selatan bersama kami</p>
-
+          
             <div class="row g-4">
+                 @foreach($schedules as $schedule)
                 <div class="col-md-6 col-lg-4">
                     <div class="destination-card slide-in-down ">
                         <div class="destination-image-wrapper">
-                            <img src="{{asset('img/mobil.jpeg')}}" alt="Pantai Angsana" class="destination-image">
+                            <img src="{{ asset('img/'. $schedule->vehicle->image) }}" alt="Pantai Angsana" class="destination-image">
                             <div class="destination-overlay">
-                                <button class="btn btn-light">Lihat Detail <i class="bi bi-chevron-right"></i></button>
+                                <a href="{{ route('schedules') }}" class="btn btn-light">Lihat Detail <i class="bi bi-chevron-right"></i></a>
                             </div>
                         </div>
                         <div class="card-body ">
-                            <h3 class="destination-name">Banjarmasin - Balikpapan</h3>
-                            <p class="text-muted"><i class="bi bi-clock"></i> 21 maret | 06:00 - 12:00</p>
+                            <h3 class="destination-name">{{$schedule->route->origin}} - {{$schedule->route->destination}}</h3>
+                            <p class="text-muted"><i class="bi bi-clock"></i>{{$schedule->departure_time->format('d M Y | H:i')}}</p>
                             <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
-                                <span class="destination-price">Rp 250.000</span>
+                                <span class="destination-price">Rp{{ number_format($schedule->route->price, 0, ',', '.') }}</span>
                                 <span class="text-muted"><i class="bi bi-clock"></i> 1 Hari</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 slide-in-down">
-                    <div class="destination-card ">
-                        <div class="destination-image-wrapper">
-                            <img src="{{asset('img/dummy_car.jpeg')}}" loading="lazy" alt="Candi Agung" class="destination-image">
-                            <div class="destination-overlay">
-                                <button class="btn btn-light">Lihat Detail <i class="bi bi-chevron-right"></i></button>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="destination-name">Banjarmasin - Samarinda</h3>
-                            <p class="text-muted"><i class="bi bi-clock"></i> 22 Maret | 07:30 - 14:00</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
-                                <span class="destination-price">Rp 280.000</span>
-                                <span class="text-muted"><i class="bi bi-clock"></i> Half Day</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 slide-in-down">
-                    <div class="destination-card">
-                        <div class="destination-image-wrapper">
-                            <img src="{{asset('img/dummy_car2.jpeg')}}" alt="Pulau Datu" class="destination-image">
-                            <div class="destination-overlay">
-                                <button class="btn btn-light">Lihat Detail <i class="bi bi-chevron-right"></i></button>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="destination-name">Banjarbaru - Banjarmasin</h3>
-                            <p class="text-muted"><i class="bi bi-clock"></i> 23 Maret | 05.00 - 06.00</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
-                                <span class="destination-price">Rp 50.000</span>
-                                <span class="text-muted"><i class="bi bi-clock"></i> 2 Hari</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 slide-in-up">
-                    <div class="destination-card">
-                        <div class="destination-image-wrapper">
-                            <img src="{{asset('img/mobil.jpeg')}}" alt="Sawah Loksado" class="destination-image">
-                            <div class="destination-overlay">
-                                <button class="btn btn-light">Lihat Detail <i class="bi bi-chevron-right"></i></button>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="destination-name">Martapura - Banjarmasin</h3>
-                            <p class="text-muted"><i class="bi bi-clock"></i> 25 Maret | 08:00 - 10:00</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
-                                <span class="destination-price">Rp 45.000</span>
-                                <span class="text-muted"><i class="bi bi-clock"></i> 1 Hari</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 slide-in-up">
-                    <div class="destination-card">
-                        <div class="destination-image-wrapper">
-                            <img src="{{asset('img/dummy_car.jpeg')}}" alt="Teluk Tamiang" class="destination-image">
-                            <div class="destination-overlay">
-                                <button class="btn btn-light">Lihat Detail <i class="bi bi-chevron-right"></i></button>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="destination-name">Banjarmasin - Palangkaraya</h3>
-                            <p class="text-muted"><i class="bi bi-clock"></i>09:00 - 15:30</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
-                                <span class="destination-price">Rp 300.000</span>
-                                <span class="text-muted"><i class="bi bi-clock"></i> 1 Hari</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 slide-in-up">
-                    <div class="destination-card">
-                        <div class="destination-image-wrapper">
-                            <img src="{{asset('img/dummy_car2.jpeg')}}" alt="Tebing Sungai" class="destination-image">
-                            <div class="destination-overlay">
-                                <button class="btn btn-light">Lihat Detail <i class="bi bi-chevron-right"></i></button>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h3 class="destination-name">Martapura - Banjarbaru</h3>
-                            <p class="text-muted"><i class="bi bi-clock"></i> 27 Maret | 08:00 - 10:00</p>
-                            <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
-                                <span class="destination-price">Rp 200.000</span>
-                                <span class="text-muted"><i class="bi bi-clock"></i> Half Day</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+             
             </div>
         </div>
     </section>
