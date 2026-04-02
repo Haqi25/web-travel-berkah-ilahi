@@ -1,5 +1,5 @@
 @include('guest.layouts.__header')
-@include('guest.layouts.__navbar')
+
 
 
    <div class="invoice-page">
@@ -141,4 +141,3 @@
     }
 </script>
 
-@include('guest.layouts.__footer')
