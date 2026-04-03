@@ -56,7 +56,7 @@
                                         <i class="bi bi-trash"></i> Hapus
                                     </button>
                                 </form>
-                            </td>
+                            </td>   
                         </tr>
                         @endforeach
                     </tbody>
