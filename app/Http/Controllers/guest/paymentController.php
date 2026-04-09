@@ -20,12 +20,16 @@ class paymentController extends Controller
 
 
         $schedule = Schedule::find($id);
+        
 
+        
         return view('user.checkout', compact('schedule'));
       
 
 
     }
+
+ 
 
    public function storeOrder(Request $request){
     
@@ -44,6 +48,9 @@ class paymentController extends Controller
     $validator = Validator::make($request->all(), [
         'name' => 'required',
         'phone' => 'required',
+        'pickup_address' => 'required',
+        'pickup_latitude' => 'required',
+        'pickup_longitude' => 'required'
     ]);
 
     if($validator->fails()){
@@ -67,8 +74,14 @@ if (str_starts_with($phoneInput, '0')) {
 
 $user = User::firstOrCreate([
     'phone' => $formattedPhone, 
+     'pickup_latitude',
+     'pickup_longitude',
+
 ], [
     'name' => $request->input('name'),
+    'pickup_address' => $request->input('pickup_address'),
+    'pickup_latitude' => $request->input('pickup_latitude'),
+    'pickup_longitude' => $request->input('pickup_longitude'),
     'role_id' => 2
 ]);
 

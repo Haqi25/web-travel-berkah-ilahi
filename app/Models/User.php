@@ -25,6 +25,9 @@ class User extends Authenticatable
        'password',
        'phone',
        'status',
+       'pickup_address',
+       'pickup_latitude',
+       'pickup_longitude',
        'created_at',
        'updated_at'
     ];
