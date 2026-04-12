@@ -16,9 +16,14 @@
 <link rel="Icon" type="image/svg" class="rounded-lg" href="/img/travel-logo-2.svg">
    <link href="{{env('APP_URL')}}/assets/guest/css/app.css" rel="stylesheet">
     {{-- <link href="{{ asset('assets/guest/css/style.css') }}" rel="stylesheet"> --}}
-    <link href="{{asset('assets/guest/css/schedule.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/guest/css/checkout.css')}}" rel="stylesheet">
+    <link href="{{env('APP_URL')}}/assets/guest/css/schedule.css" rel="stylesheet">
+    <link href="{{env('APP_URL')}}/assets/guest/css/checkout.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    @livewireStyles
+    @livewireScripts
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">    
