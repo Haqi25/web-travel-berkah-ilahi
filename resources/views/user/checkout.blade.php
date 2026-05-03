@@ -16,11 +16,21 @@
         <!-- Left Column -->
         <div class="col-lg-8">
             <!-- Data Penumpang -->
+              @if ($errors->any())
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <h5 class="alert-heading">Submit Error!</h5>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
+                    @endif
             <form id="" action="{{ route('payment') }}" method="POST">
                 @csrf
                 <div class="section-card">
                     <h5><i class="fas fa-user-edit"></i> Data Penumpang</h5>
-            
+                  
                     <div class="mb-3">
                         <input type="hidden" id="id" name="id" value="{{ $schedule->id }}" required>
                         <label class="form-label" required>Nama Lengkap</label>
@@ -50,7 +60,7 @@
 
                         <div class="input-group">
                             <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
-                            <textarea id="address_input" name="pickup_address" class="form-control" 
+                            <textarea id="address_input" name="pickup_address" class="form-control" required
                                 placeholder="Masukkan alamat lengkap (Nama Jalan, No Rumah, Patokan)"></textarea>
                         </div>
 
@@ -64,43 +74,28 @@
                 <div class="section-card">
                     <h5><i class="fas fa-chair"></i> Pilih Kursi</h5>
                     <div class="seat-map-wrapper">
-                        <div class="seat-map-header">
-                            <i class="fas fa-steering-wheel me-1"></i> DEPAN (Sopir)
+                        <div class="seat-map-wrapper">
+                            <div class="seat-map-header"><i class="fas fa-user-tie"></i> Supir</div>
+
+
+                           <livewire:seat-picker  :scheduleId="$schedule->id" :capacity="$schedule->vehicle->capacity" :pricePerSeat="$schedule->route->price" />
+
                         </div>
-                        <div class="seat-row">
-                            <div class="seat occupied">1</div>
-                            <div class="seat" onclick="toggleSeat(this)">2</div>
-                            <div class="aisle"></div>
-                            <div class="seat occupied">3</div>
-                            <div class="seat" onclick="toggleSeat(this)">4</div>
-                        </div>
-                        <div class="seat-row">
-                            <div class="seat" onclick="toggleSeat(this)">5</div>
-                            <div class="seat" onclick="toggleSeat(this)">6</div>
-                            <div class="aisle"></div>
-                            <div class="seat occupied">7</div>
-                            <div class="seat" onclick="toggleSeat(this)">8</div>
-                        </div>
-                        <div class="seat-row">
-                            <div class="seat" onclick="toggleSeat(this)">9</div>
-                            <div class="seat occupied">10</div>
-                            <div class="aisle"></div>
-                            <div class="seat" onclick="toggleSeat(this)">11</div>
-                            <div class="seat" onclick="toggleSeat(this)">12</div>
-                        </div>
-                        <div class="seat-legend">
+
+                        <div class="seat-legend mt-3">
                             <span><span class="dot dot-available"></span> Tersedia</span>
                             <span><span class="dot dot-selected"></span> Dipilih</span>
                             <span><span class="dot dot-occupied"></span> Terisi</span>
                         </div>
                     </div>
+
                 </div>
                 <!-- Metode Pembayaran -->
                 <div class="section-card">
                     <h5><i class="fas fa-credit-card"></i> Metode Pembayaran</h5>
                     <div class="d-flex flex-column gap-3">
-                        <label class="payment-option " id="pay-cash" onclick="selectPayment('cash')">
-                            <input class="form-check-input mt-0" type="radio" name="payment" value="cash"
+                        <label class="payment-option" id="pay-cash" onclick="selectPayment('cash')">
+                            <input class="form-check-input mt-0" type="radio" name="payment_method" value="cash"
                                 checked>
                             <div class="payment-icon cash"><i class="fas fa-money-bill-wave"></i></div>
                             <div>
@@ -110,7 +105,7 @@
                             </div>
                         </label>
                         <label class="payment-option" id="pay-transfer" onclick="selectPayment('transfer')">
-                            <input class="form-check-input mt-0" type="radio" name="payment" value="transfer">
+                            <input class="form-check-input mt-0" type="radio" name="payment_method" value="transfer">
                             <div class="payment-icon digital"><i class="fas fa-qrcode"></i></div>
                             <div>
                                 <div class="fw-bold" style="font-size:.95rem;">Transfer Bank / E-Wallet</div>
@@ -155,21 +150,19 @@
                     </div>
                     <div class="mb-2">
                         <div class="route-label mb-1">Kursi Dipilih</div>
-                        <div class="fw-bold" id="selected-seats-display" style="color:var(--sea-blue);">Belum dipilih
+                        <div class="fw-bold" id="selected-seats-display" style="color:var(--sea-blue);">
+                            -
                         </div>
                     </div>
                     <hr>
                     <div class="price-row">
                         <span>Harga Tiket</span>
-                        <span id="price-ticket">Rp 0</span>
+                        <span id="price-ticket"> Rp{{ number_format($schedule->route->price, 0, ',', '.') }}</span>
                     </div>
-                    <div class="price-row">
-                        <span>Biaya Layanan</span>
-                        <span>Rp 0</span>
-                    </div>
+                  
                     <div class="price-row total">
                         <span>Total Pembayaran</span>
-                        <span id="price-total">Rp{{ number_format($schedule->route->price, 0, ',', '.') }}</span>
+                        <span id="price-total"> Rp.0</span>
                     </div>
                     <button class="btn-confirm mt-3" onclick="confirmBooking()">
                         <i class="fas fa-check-circle me-2"></i>Konfirmasi Pembayaran
@@ -198,15 +191,15 @@
 @include('user.layouts.__footer')
 <script src="{{ env('APP_URL') }}/assets/guest/js/animation.js"></script>
 <script>
-    // Fungsi 1: Ambil koordinat berdasarkan apa yang diketik user
+    
     let timeout = null;
     document.getElementById('address_input').addEventListener('keyup', function() {
         clearTimeout(timeout);
         let address = this.value;
 
-        // Tunggu user selesai mengetik (delay 1 detik) baru cari koordinat
+      
         timeout = setTimeout(function() {
-            if (address.length > 10) { // Cari hanya jika alamat lumayan panjang
+            if (address.length > 10) { 
                 fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${address}`)
                     .then(response => response.json())
                     .then(data => {
@@ -214,17 +207,16 @@
                             document.getElementById('pickup_latitude').value = data[0].lat;
                             document.getElementById('pickup_longitude').value = data[0].lon;
                             document.getElementById('location_status').innerText =
-                                "✔️ Koordinat lokasi ditemukan otomatis";
+                                " Koordinat lokasi ditemukan otomatis";
                         }
                     });
             }
         }, 1000);
     });
 
-    // Fungsi 2: Ambil koordinat langsung dari GPS HP/Laptop (HTML5 Geolocation)
     function getLocation() {
         const status = document.getElementById('location_status');
-        const addressInput = document.getElementById('address_input'); // Target textarea
+        const addressInput = document.getElementById('address_input'); 
 
         if (navigator.geolocation) {
             status.innerText = "Sedang mengambil lokasi...";
@@ -233,29 +225,62 @@
                 const lat = position.coords.latitude;
                 const lng = position.coords.longitude;
 
-                // 1. Simpan angka koordinat ke hidden input
                 document.getElementById('pickup_latitude').value = lat;
                 document.getElementById('pickup_longitude').value = lng;
 
-                // 2. Lakukan "Reverse Geocoding" untuk dapat nama alamat
+              
                 fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`)
                     .then(response => response.json())
                     .then(data => {
                         if (data.display_name) {
-                            // Tampilkan nama alamat di textarea
+                          
                             addressInput.value = data.display_name;
-                            status.innerText = "✔️ Lokasi berhasil ditemukan!";
+                            status.innerText = "Lokasi berhasil ditemukan!";
                         }
                     })
                     .catch(err => {
-                        status.innerText = "✔️ Koordinat didapat, tapi gagal ambil nama jalan.";
+                        status.innerText = " Koordinat didapat, tapi gagal ambil nama jalan.";
                     });
 
             }, function(error) {
-                status.innerText = "❌ Gagal mengambil lokasi. Pastikan GPS aktif.";
+                status.innerText = " Gagal mengambil lokasi. Pastikan GPS aktif.";
             });
         } else {
             alert("Geolocation tidak didukung oleh browser ini.");
         }
     }
+
+    function toggleSeat(element) {
+       
+        if (element.classList.contains('occupied')) return;
+
+        const previouslySelected = document.querySelector('.seat.selected');
+        if (previouslySelected && previouslySelected !== element) {
+            previouslySelected.classList.remove('selected');
+        }
+
+       
+        element.classList.toggle('selected');
+
+        const seatNumber = element.innerText;
+        const input = document.getElementById('selected_seat_input');
+
+        if (element.classList.contains('selected')) {
+            input.value = seatNumber;
+        } else {
+            input.value = "";
+        }
+    }
+
+    document.addEventListener('livewire:init', () => {
+    Livewire.on('seatUpdated', (data) => {
+        // Kursi
+        document.getElementById('selected-seats-display').innerText =
+            data.seats.length ? data.seats.join(', ') : '-';
+
+        // Total harga
+        document.getElementById('price-total').innerText =
+            'Rp' + new Intl.NumberFormat('id-ID').format(data.total);
+    });
+});
 </script>
