@@ -6,11 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
 
+
 class dashboardController extends Controller
 {
     
      
     public function index(){
+
 
         $totalBooking = Order::count();
         $totalBookingNow = Order::whereDate('created_at', now())->count();
