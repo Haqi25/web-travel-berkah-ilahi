@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Schedule;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\orderDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -13,6 +14,7 @@ use Xendit\Configuration;
 use Xendit\Invoice\InvoiceApi;
 use Xendit\Invoice\CreateInvoiceRequest;
 use Illuminate\Support\Facades\Validator;
+use PhpParser\Node\Stmt\TryCatch;
 use Xendit\Invoice\CustomerObject;
 class paymentController extends Controller
 {
@@ -20,10 +22,17 @@ class paymentController extends Controller
 
 
         $schedule = Schedule::find($id);
+     
+      $bookedSeats = orderDetail::whereHas('order', function($query) use ($schedule) {
+        $query->where('schedule_id', $schedule->id)
+              ->whereIn('status', ['pending', 'PAID']); 
+    })
+    ->pluck('seat_number')
+    ->toArray();
         
 
         
-        return view('user.checkout', compact('schedule'));
+        return view('user.checkout', compact('schedule', 'bookedSeats'));
       
 
 
@@ -50,11 +59,14 @@ class paymentController extends Controller
         'phone' => 'required',
         'pickup_address' => 'required',
         'pickup_latitude' => 'required',
-        'pickup_longitude' => 'required'
+        'pickup_longitude' => 'required',
+        'seats' => 'required|array|min:1',
+        
+     
     ]);
 
     if($validator->fails()){
-        return redirect()->route('checkout')->withErrors($validator);
+        return redirect()->route('checkout', $schedule->id)->withErrors($validator);
       };
 
      
@@ -73,9 +85,7 @@ if (str_starts_with($phoneInput, '0')) {
 }
 
 $user = User::firstOrCreate([
-    'phone' => $formattedPhone, 
-     'pickup_latitude',
-     'pickup_longitude',
+    'phone' => $formattedPhone
 
 ], [
     'name' => $request->input('name'),
@@ -85,19 +95,36 @@ $user = User::firstOrCreate([
     'role_id' => 2
 ]);
 
-   
-
+  
+    
       $order = Order::create([
         'booking_code' => 'ORD-'.time(),
         'user_id' => $user->id,
         'schedule_id' => $schedule->id,
         'status' => 'pending',
-        'total_price' => $schedule->route->price,
-        'payment_method' => 'gateway',
+        'total_price'    => $schedule->route->price * count($request->input('seats')),
+        'payment_method' => $request->input('payment_method'),
+       
+      ], 
+    
+      
+    );
+    foreach ($request->input('seats') as $seat) {
+    orderDetail::create([
+        'order_id' => $order->id,
+        'passenger_name' => $user->name, 
+        'passenger_phone' => $user->phone ?? '-', 
+        'seat_number' => $seat,
+        'schedule_id' => $schedule->id
+    ]);
+}
 
-      ]);
+     if($request->payment_method == 'cash'){
+      return redirect()->route('success', ['orderId'=> $order->booking_code])->with('success', 'Pesanan Berhasil Dibuat');
+      } 
 
-      Configuration::setXenditKey(config('xendit.xendit.api_key'));
+      else {
+        Configuration::setXenditKey(config('xendit.xendit.api_key'));
 
       $apiInstance = new InvoiceApi();
 
@@ -130,6 +157,14 @@ $user = User::firstOrCreate([
     return redirect()->back()->with('error', 'Gagal membuat invoice: ' . $e->getMessage());
 }
 
+      }
+ 
+         
+
+
+    
+
+     
 
 
 }
@@ -178,7 +213,9 @@ $user = User::firstOrCreate([
 }
 
 public function checkoutSuccess($orderId){
-    $order = Order::where('booking_code', $orderId)->first();
+    $order = Order::with(['details', 'schedule.route', 'schedule.vehicle'])
+                  ->where('booking_code', $orderId)
+                  ->first();
     if(!$order){
           return redirect()->route('schedules')->with('error', 'Pesanan tidak ditemukan');
     }

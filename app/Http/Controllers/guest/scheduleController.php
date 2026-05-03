@@ -11,7 +11,7 @@ class scheduleController extends Controller
 {
     public function index(){
 
-        $schedules = Schedule::where('status', 'ACTIVE')->orderBy('created_at', 'asc')->get();
+        $schedules = Schedule::with(['vehicle', 'route'])->where('status', 'ACTIVE')->orderBy('created_at', 'asc')->get();
 
         $totalSchedules = Schedule::where('status', 'ACTIVE')->count();
 
