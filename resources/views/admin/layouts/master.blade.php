@@ -2,7 +2,9 @@
 
 <body  style="overflow-y: auto;">
 
-    <script src="{{asset('assets/admin/static/js/initTheme.js')}}"></script>
+    <script src="{{env('APP_URL')}}/admin/static/js/initTheme.js"></script>
+    <script src="{{env('APP_URL')}}/assets/admin/static/js/pages/date-picker.js"></script>
+<script src="{{env('APP_URL')}}/assets/admin/extensions/flatpickr/flatpickr.min.js"></script>
     
     @include('admin.layouts.__sidebar')
     <div id="app">
@@ -25,18 +27,21 @@
         </div>
     </div>
     
-    <script src="{{asset('assets/admin/static/js/components/dark.js')}}"></script>
-    <script src="{{asset('assets/admin/extensions/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
+    <script src="{{env('APP_URL')}}/assets/admin/static/js/components/dark.js"></script>
+    <script src="{{env('APP_URL')}}/assets/admin/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     
     
-        <script src="{{asset('assets/admin/compiled/js/app.js')}}"></script>
+        <script src="{{env('APP_URL')}}/assets/admin/compiled/js/app.js"></script>
     
 
     
 <!-- Need: Apexcharts -->
 
-<script src="{{asset('assets/admin/extensions/apexcharts/apexcharts.min.js')}}"></script>
-<script src="{{asset('assets/admin/static/js/pages/dashboard.js')}}"></script>
+<script src="{{env('APP_URL')}}/assets/admin/extensions/apexcharts/apexcharts.min.js"></script>
+<script src="{{env('APP_URL')}}/assets/admin/static/js/pages/dashboard.js"></script>
+
+
+
 
 @yield('script')
 
