@@ -157,9 +157,13 @@ padding-top : 16rem;
   font-weight: 600;
 }
 
-.invoice-status.verifikasi {
+.invoice-status.warning {
   background: #fef3c7;
   color: #92400e;
+}
+.invoice-status.danger {
+  background: #fef3c7;
+  color:rgb(146, 14, 14);
 }
 
 .invoice-status.success {
