@@ -34,7 +34,7 @@ class VehiclesSeeder extends Seeder
                 'image' => 'mobil.jpeg'
             ],
             [
-                'plate_number' => 'DAHUHUHU',
+                'plate_number' => 'DA812827',
                 'capacity' => 8,
                 'name' => 'Innova Reborn',
                 'image' => 'mobil.jpeg'

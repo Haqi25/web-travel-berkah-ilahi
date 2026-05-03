@@ -15,37 +15,37 @@ class DriversSeeder extends Seeder
     {
         DB::table('drivers')->insertOrIgnore([
             [
-               'user_id' => 3,
+               'user_id' => 59,
                'license_number' => 'SIM123456789',
                'created_at' => Carbon::now(),
                'updated_at' => Carbon::now()
             ],
             [
-               'user_id' => 4,
+               'user_id' => 60,
                'license_number' => 'SIM98989138',
                'created_at' => Carbon::now(),
                'updated_at' => Carbon::now()
             ],
             [
-                'user_id' => 5,
+                'user_id' => 61,
                'license_number' => 'SIM8298923',
                'created_at' => Carbon::now(),
                'updated_at' => Carbon::now()
             ],
             [
-                'user_id' => 6,
+                'user_id' => 62,
                'license_number' => 'SIM2183139',
                'created_at' => Carbon::now(),
                'updated_at' => Carbon::now()
             ],
              [
-                'user_id' => 7,
+                'user_id' => 63  ,
                'license_number' => 'SIM1839812',
                'created_at' => Carbon::now(),
                'updated_at' => Carbon::now()
              ],
               [
-                'user_id' => 8,
+                'user_id' => 64,
                'license_number' => 'SIM8231789',
                'created_at' => Carbon::now(),
                'updated_at' => Carbon::now()
