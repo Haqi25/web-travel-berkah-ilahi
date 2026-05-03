@@ -13,6 +13,7 @@ class Order extends Model
     protected $fillable = [
         'user_id',
         'schedule_id',
+        'seat_number',
         'booking_code',
         'status',
         'payment_url',
@@ -34,4 +35,9 @@ class Order extends Model
         return $this->belongsTo(Schedule::class);
     }
 
+    public function details()
+    {
+        
+        return $this->hasMany(orderDetail::class, 'order_id');
+    }
 }

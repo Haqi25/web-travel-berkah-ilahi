@@ -12,7 +12,7 @@ class Vehicle extends Model
 {
     use SoftDeletes,  HasFactory;
 
-    protected $fillable = ['name', 'image', 'plate_number', 'capacity', 'status', 'created_at', 'updated_at'];
+    protected $fillable = ['name', 'image', 'plate_number', 'capacity', 'status', 'created_at', 'updated_at', 'seat_layout'];
     protected $dates = ['deleted_at'];
 
     public function schedule(){

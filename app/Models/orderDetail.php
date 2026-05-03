@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class orderDetail extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ['order_id', 'seat_number', 'created_at', 'updated_at', 'amount', 'payment_date', 'payment_method', 'passenger_name', 'passenger_phone'];
+    protected $fillable = ['order_id', 'seat_number',  'passenger_name', 'passenger_phone', 'schedule_id'];
 
     protected $dates = ['deleted_at'];
 
@@ -18,4 +18,8 @@ class orderDetail extends Model
         return $this->belongsTo(Order::class);
     }
 
+    public function schedule()
+    {
+        return $this->belongsTo(Schedule::class);
+    }
 }
