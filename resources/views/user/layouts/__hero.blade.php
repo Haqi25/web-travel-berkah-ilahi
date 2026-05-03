@@ -58,7 +58,18 @@ data-bs-pause="false">
                 <i class="bi bi-house"></i>
                 <span>Gratis rumah transit</span>
             </div>
+         
+            </div>
+           
+             <div class="pt-3">
+          
+            <a href="{{route('schedules')}}" class="btn btn-primary-custom">
+              Lihat jadwal
+            </a>
+          
+            
         </div>
+         
     </div>
 
 </section>

@@ -4,8 +4,8 @@
             <h2 class="section-title ">Layanan Kami</h2>
             <p class="section-subtitle">Beragam layanan travel untuk memenuhi kebutuhan perjalanan Anda</p>
 
-            <div class="row g-4 mb-5">
-                <div class="col-md-6 col-lg-3">
+            <div class="row g-4 mb-5 ">
+                <div class="col-md-6 col-lg-4 pl-5">
                     <div class="service-card slide-in-left">
                         <h3 class="service-title">Travel Antar Kota</h3>
                         <p>Layanan travel antar kota dengan armada mewah dan nyaman</p>
@@ -15,7 +15,7 @@
                         <div class="feature-item"><i class="bi bi-check-circle"></i> WiFi</div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                {{-- <div class="col-md-6 col-lg-3">
                     <div class="service-card slide-in-left">
                         <h3 class="service-title">Paket Wisata</h3>
                         <p>Paket wisata lengkap ke destinasi populer di Kalimantan Selatan</p>
@@ -24,8 +24,8 @@
                         <div class="feature-item"><i class="bi bi-check-circle"></i> Tiket Masuk</div>
                         <div class="feature-item"><i class="bi bi-check-circle"></i> Dokumentasi</div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
+                </div> --}}
+                <div class="col-md-6 col-lg-4">
                     <div class="service-card slide-in-right">
                         <h3 class="service-title">Airport Shuttle</h3>
                         <p>Layanan antar jemput bandara gratis untuk pelanggan setia</p>
@@ -35,7 +35,7 @@
                         <div class="feature-item"><i class="bi bi-check-circle"></i> Luggage Assist</div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-4">
                     <div class="service-card slide-in-right">
                         <h3 class="service-title">Sewa Kendaraan</h3>
                         <p>Sewa mobil dengan atau tanpa driver untuk perjalanan Anda</p>
