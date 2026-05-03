@@ -31,6 +31,10 @@ new class extends Component
         <span class="invoice-status warning">
             menunggu pembayaran
         </span>
+    @elseif($status == 'done')
+        <span class="invoice-status success">
+            pembayaran berhasil
+        </span>
     @else
         <span class="invoice-status danger">
             pembayaran gagal
