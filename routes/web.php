@@ -7,6 +7,8 @@ use App\Http\Controllers\admin\routeController;
 use App\Http\Controllers\admin\scheduleListController;
 use App\Http\Controllers\admin\usersController;
 use App\Http\Controllers\admin\vehicleController;
+use App\Http\Controllers\admin\changeScheduleStatus;
+use App\Http\Controllers\admin\calendarController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordController;
@@ -14,6 +16,8 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\guest\homeController;
 use App\Http\Controllers\guest\paymentController;
 use App\Http\Controllers\guest\scheduleController;
+
+
 use Illuminate\Container\Attributes\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -72,10 +76,13 @@ Route::put('updatePassword', [PasswordController::class, 'update'])->name('passw
 });
 
 //admin
+
 Route::middleware('role:admin')->group(function(){
+Route::get('departure-calendar', [calendarController::class, 'index'])->name('departure-calendar');
 Route::resource('roles',  roleController::class);
 Route::resource('scheduleList', scheduleListController::class);
-
+Route::post('updateStatusSchedule/{id}/available',[changeScheduleStatus::class, 'activeStatus'])->name('status.active');
+Route::post('updateStatusSchedule/{id}', [changeScheduleStatus::class, 'nonactiveStatus'])->name('status.nonactive');
 Route::resource('users', usersController::class);
 Route::resource('vehicles', vehicleController::class);
 Route::resource('routes', routeController::class);
