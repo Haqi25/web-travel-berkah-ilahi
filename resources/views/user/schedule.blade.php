@@ -101,7 +101,7 @@
                                             class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
                                             <span
                                                 class="destination-price">Rp{{ number_format($schedule->route->price, 0, ',', '.') }}</span>
-                                            <span class="text-muted"><i class="bi bi-clock"></i> 1 Hari</span>
+                                            {{-- <span class="text-muted"><i class="bi bi-clock"></i> 1 Hari</span> --}}
                                         </div>
                                     </div>
                                 </div>

@@ -52,15 +52,15 @@
                                  <div class="category">
                                      <label for="category">Pilih Mobil</label>
                                      <select class="form-select" id="vehicle" name="vehicle_id" required>
-                                         <option value="{{$schedule->vehicle_id}}" selected>{{$schedule->vehicle->name}} - {{$schedule->vehicle->plate_number}}, Kapasitas : {{$schedule->vehicle->capacity}}</option>
-                                        @foreach ($vehicles as $vehicle)
-    <option value="{{ $vehicle->id }}" 
-        {{ old('vehicle_id', $schedule->vehicle_id) == $vehicle->id ? 'selected' : '' }}>
-        {{ $vehicle->name }} - {{ $vehicle->plate_number }} 
-        ({{ $vehicle->capacity }} kursi)
-    </option>
-@endforeach
-                                     </select>
+                                        <option value="">-- Pilih Kendaraan --</option>
+                                    @foreach ($vehicles as $vehicle)
+                                        <option value="{{ $vehicle->id }}"  
+                                            {{ old('vehicle_id', $schedule->vehicle_id ?? '') == $vehicle->id ? 'selected' : '' }}>
+                                            {{ $vehicle->name }} - {{ $vehicle->plate_number }} 
+                                            (Kapasitas: {{ $vehicle->capacity }})
+                                        </option>
+                                    @endforeach
+                                  </select>
                                  </div>
 
 
@@ -68,21 +68,21 @@
                                  <div class="form-group">
                                      <label for="departure_time">Tanggal keberangkatan</label>
                                      <input type="datetime-local" name="departure_time" value="{{$schedule->departure_time}}"
-                                         min="{{ now()->format('Y-m-d\TH:i') }}" class="form-control" required>
+                                         min="{{ now()->format('Y-m-d\TH:i') }}" class="form-control" >
                                  </div>
                              </div>
                              <div class="col-md-6">
                                  <div class="category">
                                      <label for="category">Sopir</label>
-                                     <select class="form-select" id="driver_id" name="driver_id" required>
-                                         <option value="{{$schedule->vehicle_id}}"  selected>{{$schedule->driver->user->name}} - {{$schedule->driver->license_number}}</option>
-                                       @foreach ($drivers as $driver)
-    <option value="{{ $driver->id }}" 
-        {{ old('driver_id', $schedule->driver_id) == $driver->id ? 'selected' : '' }}>
-        {{ $driver->user?->name ?? '-' }} - {{ $driver->license_number }}
-    </option>
-@endforeach
-                                     </select>
+                                    <select class="form-select" id="driver_id" name="driver_id" required>
+                                    <option value="">-- Pilih Driver --</option>
+                                    @foreach ($drivers as $driver)
+                                        <option value="{{ $driver->id }}" 
+                                            {{ old('driver_id', $schedule->driver_id ?? '') == $driver->id ? 'selected' : '' }}>
+                                            {{ $driver->user->name ?? 'No Name' }} - {{ $driver->license_number }}
+                                        </option>
+                                    @endforeach
+                                </select>
                                  </div>
                                     <div class="category">
                                      <label for="category">Status</label>

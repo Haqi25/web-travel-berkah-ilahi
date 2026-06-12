@@ -29,6 +29,7 @@
     <link href="{{ asset('assets/guest/lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
 
     <link href="{{ asset('assets/guest/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    
 
 
     <!-- Customized Bootstrap Stylesheet -->

@@ -201,6 +201,15 @@ padding-top : 16rem;
   border-color: #0369a1;
 }
 
+.invoice-btn.whatsapp {
+  background: #25D366;
+  color: #fff;
+  border-color: #25D366;
+}
+
+.invoice-btn.whatsapp:hover {
+  background: #1ebc5a;
+}
 .invoice-btn.download:hover {
   background: #025a8c;
 }

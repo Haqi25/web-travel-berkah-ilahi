@@ -114,8 +114,15 @@
                                 <polyline points="7 10 12 15 17 10" />
                                 <line x1="12" y1="15" x2="12" y2="3" />
                             </svg>
+                            
                             Download PDF
                         </button>
+
+                        <a class="invoice-btn whatsapp" href="https://wa.me/+6282253553459">
+                            <i class="bi bi-whatsapp"></i> Chat via WhatsApp
+                        </a>
+                               
+                    
                         <a href="{{ url('/') }}" class="invoice-btn">
                             Kembali ke Beranda
                         </a>

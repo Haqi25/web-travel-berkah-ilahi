@@ -58,8 +58,8 @@ class paymentController extends Controller
         'name' => 'required',
         'phone' => 'required',
         'pickup_address' => 'required',
-        'pickup_latitude' => 'required',
-        'pickup_longitude' => 'required',
+        // 'pickup_latitude' => 'required',
+        // 'pickup_longitude' => 'required',
         'seats' => 'required|array|min:1',
         
      

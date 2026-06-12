@@ -73,7 +73,7 @@
                             <span>Daftar Jadwal</span>
                         </a>
                     </li>
-                     <li class="sidebar-item {{ request()->routeIs('') ? 'active' : '' }}">
+                     <li class="sidebar-item {{ request()->routeIs('departure-calendar') ? 'active' : '' }}">
                         <a href="/departure-calendar" class='sidebar-link'>
                          <i class="bi bi-calendar-month-fill"></i>
                             <span>Kalender Keberangkatan</span>

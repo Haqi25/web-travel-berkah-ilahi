@@ -10,7 +10,7 @@ class calendarController extends Controller
     
     public function index(){
 
-        $orders = Order::with(['user', 'schedule'])->get();
+        $orders = Order::with(['user', 'schedule'])->where('status', 'PAID')->get();
 
         $events = [];
 

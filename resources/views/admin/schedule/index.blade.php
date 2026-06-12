@@ -50,18 +50,22 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>
-                                <img src="{{ asset('storage/'. $schedule->vehicle->image) }}" width="60" class="img-fluid rounded-top" alt="" onerror="this.onerror=null;this.src='{{  $schedule->vehicle->image }}';">
+                              <img src="{{ asset('storage/' . (optional($schedule->vehicle)->image ?? '')) }}"
+     width="60"
+     class="img-fluid rounded-top"
+     alt=""
+     onerror="this.onerror=null;this.src='{{ optional($schedule->vehicle)->image ?? '' }}';">
                             </td>
-                            <td>{{ $schedule->route->origin }}</td>
-                            <td>{{  $schedule->route->destination }}</td>
+                            <td>{{ $schedule->route->origin ?? '' }}</td>
+                            <td>{{  $schedule->route->destination ?? '' }}</td>
                             <td>{{$schedule->departure_time->format('d M Y | H:i')}}</td>
                             <td>
                               
-                                {{ 'Rp'. number_format($schedule->route->price, 0, ',','.') }}
+                           {{ $schedule->route?->price ? 'Rp' . number_format($schedule->route->price, 0, ',', '.') : '-' }}
                             </td>
                             <td>
                               
-                                {{$schedule->driver->user->name}}
+                                {{$schedule->driver->user->name ?? '-'}}
                             </td>
                             <td>
                                {{$schedule->status}}
@@ -71,18 +75,18 @@
                                 </a>
                                 <td>
                                   @if ($schedule->status == 'ACTIVE')
-                                    <form action="{{ route('scheduleList.index', $schedule->id) }}" method="POST">
+                                    <form action="{{ route('status.nonactive', $schedule->id) }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="is_active" value="0">
                                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin menonaktifkan menu ini?')">
                                             <i class="bi bi-x"></i> Nonaktifkan
                                         </button>
                                     </form>
-                               @elseif($schedule->status == 'NONACTIVE')
+                              
                                 </td>
                             </td>
-                              
-                                    <form action="{{ route('scheduleList.index', $schedule->id) }}" method="POST">
+                               @elseif($schedule->status == 'NONACTIVE')
+                                    <form action="{{ route('status.active', $schedule->id) }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="is_active" value="1">
                                         <button type="submit" class="btn btn-success btn-sm" onclick="return confirm('Apakah anda yakin ingin mengaktifkan menu ini?')">

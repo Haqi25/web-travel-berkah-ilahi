@@ -12,7 +12,7 @@
                         <i class="bi bi-telephone"></i>
                         <div>
                             <h5 class="mb-1 fw-bold">Telepon</h5>
-                            <p class="mb-0">+62 812-3456-7890</p>
+                            <p class="mb-0">082253553459</p>
                         </div>
                     </a>
 
@@ -32,9 +32,12 @@
                         </div>
                     </div>
 
-                    <button class="btn whatsapp-btn mt-3">
-                        <i class="bi bi-whatsapp"></i> Chat via WhatsApp
-                    </button>
+                 <a class="btn whatsapp-btn mt-3"  href="https://wa.me/+6282253553459"
+                 >
+                  <i class="bi bi-whatsapp"></i> Chat via WhatsApp</a>
+                    
+                
+                   
                 </div>
 
                 <div class="col-lg-7 slide-in-right">

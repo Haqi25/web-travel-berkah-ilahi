@@ -92,7 +92,7 @@
                                 {{$order->schedule->vehicle->name}}
                             </td>
                             <td>
-                                {{$order->schedule->driver->user->name}}
+                                {{$order->schedule->driver->user->name ?? 'N/A'}}
                             </td>
                              <td>
                                 {{$order->schedule->vehicle->plate_number}}
