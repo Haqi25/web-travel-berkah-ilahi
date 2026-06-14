@@ -87,4 +87,16 @@ Route::resource('users', usersController::class);
 Route::resource('vehicles', vehicleController::class);
 Route::resource('routes', routeController::class);
 
+
+
+});
+
+//Syarat & Ketentuan 
+
+Route::get('/terms-and-conditions', function(){
+    return view('user.termconditions');
+});
+
+Route::get('/privacy-policy', function(){
+    return view('user.privacyPolicy');
 });

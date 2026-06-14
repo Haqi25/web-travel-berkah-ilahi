@@ -5,7 +5,7 @@
                 <div class="col-lg-3">
                     <div class="footer-brand mb-3">
                           <img src="/img/travel-logo-2.svg"  alt="Logo" style="width: 50px; height: auto;" class="me-2 rounded">
-                        <span>Travel Berkah Ilahi</span>
+                        <span>Heri Travel Geronggang</span>
                     </div>
                     <p style="color: rgba(255, 255, 255, 0.8);">
                         Layanan travel terpercaya dengan komitmen memberikan perjalanan yang nyaman, aman, dan penuh berkah.
@@ -23,8 +23,8 @@
                 <div class="col-lg-3">
                     <h4>Kontak</h4>
                     <ul>
-                        <li>+62 812-3456-7890</li>
-                        <li>info@travelberkahilahi.com</li>
+                        <li>082253553459</li>
+                        <li>info@heritravelgeronggang.com</li>
                         <li>Banjarmasin, Kalsel</li>
                     </ul>
                 </div>
@@ -41,10 +41,10 @@
             <hr style="border-color: rgba(255, 255, 255, 0.2);">
 
             <div class="d-flex justify-content-between align-items-center flex-wrap">
-                <p class="mb-0" style="color: rgba(255, 255, 255, 0.7);">&copy; 2026 Travel Berkah Ilahi. All rights reserved.</p>
+                <p class="mb-0" style="color: rgba(255, 255, 255, 0.7);">&copy; 2026 Heri Travel Geronggang. All rights reserved.</p>
                 <div>
-                    <button class="btn btn-link text-white text-decoration-none">Privacy Policy</button>
-                    <button class="btn btn-link text-white text-decoration-none">Terms of Service</button>
+                    <a class="btn btn-link text-white text-decoration-none" href="/privacy-policy">Privacy Policy</a>
+                    <a class="btn btn-link text-white text-decoration-none" href="/terms-and-conditions">Syarat & Ketentuan</a>
                 </div>
             </div>
         </div>

@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Travel Berkah Ilahi</title>
+    <title>Heri Travel Geronggang</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="description"
-        content="Travel Berkah Ilahi - Melayani rute Banjarmasin, Sungai Danau, Angsana, Batulicin, Siayuh, hingga Geronggang. Kepuasan anda adalah kebahagiaan kami.">
+        content="Heri Travel Geronggang - Melayani rute Banjarmasin, Sungai Danau, Angsana, Batulicin, Siayuh, hingga Geronggang. Kepuasan anda adalah kebahagiaan kami.">
 
     <meta name="keywords"
-        content="travel banjarmasin, travel batulicin, travel sungai danau, travel angsana, travel geronggang, berkah ilahi">
+        content="travel banjarmasin, travel batulicin, travel sungai danau, travel angsana, travel geronggang, heri travel geronggang">
 
 <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">

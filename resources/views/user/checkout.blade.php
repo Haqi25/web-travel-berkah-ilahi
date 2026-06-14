@@ -159,6 +159,11 @@
                         <span>Harga Tiket</span>
                         <span id="price-ticket"> Rp{{ number_format($schedule->route->price, 0, ',', '.') }}</span>
                     </div>
+                    <div class="price-row">
+                        <input type="checkbox" id="agree-terms" name="aggreement" required>
+                        <label for="agree-terms" class="mb-2"> Saya Setuju dengan <a href="/terms-and-conditions">Syarat & ketentuan </a> dan <a href="/privacy-policy">Kebijakan Privasi</a></label>
+                    </div>
+                  
                   
                     <div class="price-row total">
                         <span>Total Pembayaran</span>
