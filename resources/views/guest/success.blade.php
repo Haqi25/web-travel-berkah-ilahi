@@ -73,7 +73,7 @@
                                 <label>
                                     Channel
                                 </label>
-                                {{ $order->payment_channel }}
+                                {{ $order->schedule->vehicle->name }}
                             </div>
                         @endif
 
@@ -123,9 +123,18 @@
                         </a>
                                
                     
+                        @if($order->status == 'PAID' || $order->status == 'done' || $order->status == 'cancelled')
                         <a href="{{ url('/') }}" class="invoice-btn">
                             Kembali ke Beranda
                         </a>
+                        @else
+                        <a href="{{ route('payment', $order->booking_code) }}" class="invoice-btn">
+                            Ubah Pembayaran
+                        </a>
+                  
+                
+                  
+                        @endif
                     </div>
 
                 </div>

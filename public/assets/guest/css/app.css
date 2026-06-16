@@ -47,6 +47,11 @@
             color: var(--sea-blue-600);
         }
 
+        @media (max-width: 768px) {
+            .navbar-brand {
+                 font-size: 1rem;
+            }
+        }
         .brand-icon {
             color: var(--sea-blue-500);
             animation: float 3s ease-in-out infinite;
@@ -62,6 +67,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            
         }
 
         .nav-link {

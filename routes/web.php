@@ -14,6 +14,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\guest\homeController;
+use App\Http\Controllers\guest\newPaymentController;
 use App\Http\Controllers\guest\paymentController;
 use App\Http\Controllers\guest\scheduleController;
 
@@ -24,15 +25,16 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', [homeController::class, 'index'])->name('home');
 Route::get('/schedules', [scheduleController::class, 'index'])->name('schedules');
 
-Route::get('/checkout/{id}', [paymentController::class, 'checkout'])->name('checkout');
-Route::get('/checkout', function(){
+Route::get('/booking/{id}', [paymentController::class, 'checkout'])->name('checkout');
+Route::get('/booking', function(){
     return redirect()->route('home');
 });
 
-Route::post('/payment',  [paymentController::class, 'storeOrder'])->name('payment');
+// Route::post('/payment',  [paymentController::class, 'storeOrder'])->name('payment');
 
-Route::post('/payments/webhook', [paymentController::class, 'handleCallback']);
-
+Route::get('/payment/{orderId}', [newPaymentController::class, 'payment'])->name('payment');
+Route::post('/bookingForm', [newPaymentController::class, 'bookingForm'])->name('bookingForm');
+Route::patch('/paymentForm/{booking_code}', [newPaymentController::class, 'paymentForm'])->name('paymentForm');
 Route::get('/success/{orderId}', [paymentController::class, 'checkoutSuccess'])->name('success');
 Route::get('/', [homeController::class, 'index'])->name('home');
 
@@ -54,6 +56,8 @@ Route::middleware('guest')->group(function(){
     Route::post('passwordStore', [NewPasswordController::class, 'store'])->name('password.store');
     Route::get('verify/otp', [AuthenticatedSessionController::class, 'verifyOtp'])->name('verify.otp');
     Route::post('verify/otp/store', [AuthenticatedSessionController::class, 'verifyOtpStore'])->name('verify.otp.store');
+ 
+
 });
  
 Route::middleware('auth')->group(function(){
@@ -93,7 +97,7 @@ Route::resource('routes', routeController::class);
 
 //Syarat & Ketentuan 
 
-Route::get('/terms-and-conditions', function(){
+   Route::get('/terms-and-conditions', function(){
     return view('user.termconditions');
 });
 

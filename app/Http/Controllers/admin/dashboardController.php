@@ -17,8 +17,10 @@ class dashboardController extends Controller
         $totalBooking = Order::count();
         $totalBookingNow = Order::whereDate('created_at', now())->count();
 
-        $totalIncome = Order::sum('total_price');
-        $totalIncomeNow = Order::whereDate('created_at', now())->sum('total_price');
+      
+        $totalIncome = Order::whereIn('status', ['PAID', 'done'])->sum('total_price');
+
+          $totalIncomeNow = Order::whereIn('status', ['PAID', 'done'])->whereDate('created_at', now())->sum('total_price');
 
         return view('admin.dashboard', compact('totalBooking', 'totalBookingNow', 'totalIncome', 'totalIncomeNow'));
         

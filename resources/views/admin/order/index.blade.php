@@ -92,7 +92,7 @@
                             </td>
                             <td>
                                 {{-- @if (Auth::user()->role->role_name == 'ADMIN' || Auth::user()->role->role_name == 'DRIVER') --}}
-                                    @if ($order->status == 'pending' && $order->payment_method == 'cash')
+                                    @if ($order->status == 'pending')
                                          <form action="{{route('orders.updateStatus', $order->id)}}" method="POST">
                                              @csrf
                                              @method('PATCH')

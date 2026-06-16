@@ -26,7 +26,7 @@
                                 aria-label="Close"></button>
                         </div>
                     @endif
-            <form id="" action="{{ route('payment') }}" method="POST">
+   <form id="" method="POST" action="{{ route('bookingForm') }}">
                 @csrf
                 <div class="section-card">
                     <h5><i class="fas fa-user-edit"></i> Data Penumpang</h5>
@@ -90,31 +90,7 @@
                     </div>
 
                 </div>
-                <!-- Metode Pembayaran -->
-                <div class="section-card">
-                    <h5><i class="fas fa-credit-card"></i> Metode Pembayaran</h5>
-                    <div class="d-flex flex-column gap-3">
-                        <label class="payment-option" id="pay-cash" onclick="selectPayment('cash')">
-                            <input class="form-check-input mt-0" type="radio" name="payment_method" value="cash"
-                                checked>
-                            <div class="payment-icon cash"><i class="fas fa-money-bill-wave"></i></div>
-                            <div>
-                                <div class="fw-bold" style="font-size:.95rem;">Bayar Tunai (Cash)</div>
-                                <div class="text-muted" style="font-size:.8rem;">Bayar langsung saat keberangkatan
-                                </div>
-                            </div>
-                        </label>
-                        <label class="payment-option" id="pay-transfer" onclick="selectPayment('transfer')">
-                            <input class="form-check-input mt-0" type="radio" name="payment_method" value="transfer">
-                            <div class="payment-icon digital"><i class="fas fa-qrcode"></i></div>
-                            <div>
-                                <div class="fw-bold" style="font-size:.95rem;">Transfer Bank / E-Wallet</div>
-                                <div class="text-muted" style="font-size:.8rem;">Otomatis via Payment Gateway (QRIS,
-                                    BCA, BRI, dll)</div>
-                            </div>
-                        </label>
-                    </div>
-                </div>
+              
         </div>
 
         <!-- Right Column -->
@@ -160,7 +136,7 @@
                         <span id="price-ticket"> Rp{{ number_format($schedule->route->price, 0, ',', '.') }}</span>
                     </div>
                     <div class="price-row">
-                        <input type="checkbox" id="agree-terms" name="aggreement" required>
+                        <input type="checkbox" id="agree-terms" name="terms_accepted" required>
                         <label for="agree-terms" class="mb-2"> Saya Setuju dengan <a href="/terms-and-conditions">Syarat & ketentuan </a> dan <a href="/privacy-policy">Kebijakan Privasi</a></label>
                     </div>
                   
@@ -170,7 +146,7 @@
                         <span id="price-total"> Rp.0</span>
                     </div>
                     <button class="btn-confirm mt-3" onclick="confirmBooking()">
-                        <i class="fas fa-check-circle me-2"></i>Konfirmasi Pembayaran
+                        <i class="fas fa-check-circle me-2"></i>Lanjut ke Pembayaran
                     </button>
 
                     <div class="secure-badge">
@@ -179,7 +155,7 @@
                 </div>
             </div>
         </div>
-        </form>
+    </form>
     </div>
 </div>
 

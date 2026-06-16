@@ -40,7 +40,13 @@
                             </span>
                             </span>
                         </p>
-
+                       @if($order->payment_method == 'transfer')
+                       <p>Bukti Pembayaran : </p>
+                         <a href="{{ asset('storage/' . $order->payment_proof) }}"
+       target="_blank">
+                        <img src="{{ asset('storage/' . $order->payment_proof) }}" alt="Bukti Pembayaran" class="img-fluid">
+                        </a>
+                        @endif
                     </div>
                     <div class="col-md-6">
                       

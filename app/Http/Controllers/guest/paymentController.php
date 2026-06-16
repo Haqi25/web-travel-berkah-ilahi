@@ -23,6 +23,9 @@ class paymentController extends Controller
 
         $schedule = Schedule::find($id);
      
+        if(!$schedule){
+            return redirect()->route('schedules');
+        }
       $bookedSeats = orderDetail::whereHas('order', function($query) use ($schedule) {
         $query->where('schedule_id', $schedule->id)
               ->whereIn('status', ['pending', 'PAID']); 
@@ -218,6 +221,10 @@ public function checkoutSuccess($orderId){
                   ->first();
     if(!$order){
           return redirect()->route('schedules')->with('error', 'Pesanan tidak ditemukan');
+    };
+
+    if($order->payment_method == '-'){
+         return redirect()->route('payment', $order->booking_code)->with('error', 'Pesanan tidak ditemukan');
     }
 
     return view('guest.success', compact('order'));
