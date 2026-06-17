@@ -21,7 +21,9 @@ class paymentController extends Controller
     public function checkout($id){
 
 
-        $schedule = Schedule::find($id);
+        $schedule = Schedule::where('id', $id)
+                        ->where('status', 'ACTIVE') 
+                        ->first();
      
         if(!$schedule){
             return redirect()->route('schedules');

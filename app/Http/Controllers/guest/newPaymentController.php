@@ -23,8 +23,8 @@ class newPaymentController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
-        'name' => 'required',
-        'phone' => 'required',
+        'customer_name' => 'required',
+        'customer_phone' => 'required',
         'pickup_address' => 'required',
         // 'pickup_latitude' => 'required',
         // 'pickup_longitude' => 'required',
@@ -40,7 +40,7 @@ class newPaymentController extends Controller
       };
 
      
-$phoneInput = $request->input('phone');
+$phoneInput = $request->input('customer_phone');
 
 
 $formattedPhone = $phoneInput;
@@ -54,23 +54,18 @@ if (str_starts_with($phoneInput, '0')) {
     $formattedPhone = '+62' . $phoneInput;
 }
 
-$user = User::firstOrCreate([
-    'phone' => $formattedPhone
 
-], [
-    'name' => $request->input('name'),
-    'pickup_address' => $request->input('pickup_address'),
-    'pickup_latitude' => $request->input('pickup_latitude'),
-    'pickup_longitude' => $request->input('pickup_longitude'),
-    'role_id' => 2
-]);
 
   
     
       $order = Order::create([
         'booking_code' => 'ORD-'.time(),
-        'user_id' => $user->id,
-        'schedule_id' => $schedule->id,
+        'customer_name' => $request->input('customer_name'),
+        'customer_phone' => $formattedPhone,
+        'pickup_address' => $request->input('pickup_address'),
+        'pickup_latitude' => $request->input('pickup_latitude'),
+         'pickup_longitude' => $request->input('pickup_longitude'),
+         'schedule_id' => $schedule->id,
         'status' => 'pending',
         'total_price'    => $schedule->route->price * count($request->input('seats')),
         'payment_method' => '-',
@@ -84,8 +79,8 @@ $user = User::firstOrCreate([
     foreach ($request->input('seats') as $seat) {
     orderDetail::create([
         'order_id' => $order->id,
-        'passenger_name' => $user->name, 
-        'passenger_phone' => $user->phone ?? '-', 
+        'passenger_name' => $order->customer_name, 
+        'passenger_phone' => $order->customer_phone ?? '-', 
         'seat_number' => $seat,
         'schedule_id' => $schedule->id
     ]);

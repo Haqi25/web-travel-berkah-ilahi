@@ -21,6 +21,14 @@ class Order extends Model
         'invoice_url',
         'payment_channel',
         'payment_method',
+        'payment_proof',
+        'terms_accepted',
+        'terms_accepted_at',
+        'customer_name',
+        'customer_phone',
+        'pickup_address',
+        'pickup_latitude',
+        'pickup_longitude',
         'created_at',
         'updated_at'
 
