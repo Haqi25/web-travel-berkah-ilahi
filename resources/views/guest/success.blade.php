@@ -48,12 +48,12 @@
                         <div class="invoice-detail-item">
                             <label>Penumpang</label>
 
-                            {{ $order->user->name }}
+                            {{ $order->customer_name }}
                         </div>
                         <div class="invoice-detail-item">
                             <label>Telepon</label>
 
-                            {{ $order->user->phone }}
+                            {{ $order->customer_phone }}
                         </div>
                         <div class="invoice-detail-item">
                             <label>Kursi</label>
@@ -84,7 +84,7 @@
                             <label>
                                 Alamat Penjemputan
                             </label>
-                            {{ $order->user->pickup_address }}
+                            {{ $order->pickup_address }}
                         </div>
                     </div>
 
@@ -102,6 +102,7 @@
                         <livewire:invoice-status :orderId="$order->id"/>
                     </div>
 
+                    
                     <hr class="invoice-divider">
 
                     {{-- Buttons --}}
@@ -142,36 +143,27 @@
         </div>
         {{-- // 'invoice-{{ $invoice['bookingCode'] }}.pdf' --}}
     </div>{{-- end printRef --}}
-    <script>
-        function handleDownloadPdf() {
-            const element = document.getElementById('printRef');
-            const header = element.querySelector('.invoice-header')
-            const actions = element.querySelector('.invoice-actions');
+   <script>
+    function handleDownloadPdf() {
+        // 1. Pilih elemen invoice yang ingin didownload
+        const element = document.querySelector('.invoice-card');
 
-            const opt = {
-                margin: 0,
-                filename: 'invoice-{{ $order->booking_code }}.pdf',
-                image: {
-                    type: 'jpeg',
-                    quality: 0.98
-                },
-                html2canvas: {
-                    scale: 2
-                },
-                jsPDF: {
-                    unit: 'mm',
-                    format: 'a4',
-                    orientation: 'portrait'
-                }
-            };
-            html2pdf()
-                .set(opt)
-                .from(element)
-                .save()
-                .finally(() => {
+        // 2. Sembunyikan bagian tombol aksi sementara agar tidak ikut tercetak di PDF
+        const actions = document.querySelector('.invoice-actions');
+        if (actions) actions.style.display = 'none';
 
-                    if (actions) actions.style.display = '';
-                    if (header) actions.style.display = '';
-                })
-        }
-    </script>
+        // 3. Konfigurasi opsional untuk file PDF-nya
+        const options = {
+            margin:       0.5,
+            filename:     'Invoice-{{ $order->booking_code }}.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2 }, // Mengatur ketajaman text/gambar
+            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+
+        // 4. Proses pembuatan PDF dan kembalikan tombol aksi setelah selesai
+        html2pdf().set(options).from(element).save().then(() => {
+            if (actions) actions.style.display = 'flex'; // Munculkan kembali tombolnya
+        });
+    }
+</script>

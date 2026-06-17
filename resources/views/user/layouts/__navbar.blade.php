@@ -3,7 +3,7 @@
         <div class="container "> 
             
             <a class="navbar-brand" href="#home">
-                  <img src="/img/travel-logo-2.svg"  alt="Logo" style="width: 50px; height: auto;" class="me-2 rounded">
+                  <img src="/img/travel-logo-4.svg"  alt="Logo" style="width: 50px; height: auto;" class="me-2 rounded">
                 <span class="brand-text">Heri Travel Geronggang</span>
             </a>
             <button class="navbar-toggler" style="font-size: 0.75rem; !important" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">

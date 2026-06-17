@@ -56,7 +56,7 @@
 
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $order->booking_code }}</td>
-                            <td>{{ $order->user->name }}</td>
+                            <td>{{ $order->customer_name }}</td>
                             <td>{{ 'Rp'. number_format($order->total_price, 0, ',', '.') }}</td>
                             <td>
                               {{$order->payment_method}}
@@ -84,7 +84,7 @@
                             </td>
                             <td>
                                   <span class="btn btn-success btn-sm">
-                                    <a href="https://www.google.com/maps/dir/?api=1&destination={{ $order->user->pickup_latitude }},{{ $order->user->pickup_longitude }}"class="text-white">
+                                    <a href="https://www.google.com/maps/dir/?api=1&destination={{ $order->pickup_latitude }},{{ $order->pickup_longitude }}"class="text-white">
                                         <i class="bi bi-geo-alt-fill"></i> Maps
                                     </a>
                                 </span>

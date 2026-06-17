@@ -3,17 +3,17 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Travel Berkah Ilahi</title>
+    <title>Heri Travel Geronggang</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="description"
-        content="Travel Berkah Ilahi - Melayani rute Banjarmasin, Sungai Danau, Angsana, Batulicin, Siayuh, hingga Geronggang. Kepuasan anda adalah kebahagiaan kami.">
+        content="Heri Travel Geronggang - Melayani rute Banjarmasin, Sungai Danau, Angsana, Batulicin, Siayuh, hingga Geronggang. Kepuasan anda adalah kebahagiaan kami.">
 
     <meta name="keywords"
         content="travel banjarmasin, travel batulicin, travel sungai danau, travel angsana, travel geronggang, berkah ilahi">
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="Icon" type="image/svg" class="rounded-lg" href="/img/travel-logo-2.svg">
+    <link rel="Icon" type="image/svg" class="rounded-lg" href="/img/travel-logo-4.svg">
 
     {{-- <link href="{{ asset('assets/guest/css/style.css') }}" rel="stylesheet"> --}}
     {{-- <link href="{{env('APP_URL')}}/assets/admin/css/login.css" rel="stylesheet"> --}}
@@ -38,7 +38,7 @@
                 <div class="card" style="border-radius: 1rem;">
                     <div class="row g-0">
                         <div class="col-md-6 col-lg-5 d-none d-md-block">
-                            <img src="{{ env('APP_URL') }}/img/travel-logo-2.png" alt="login form" class="img-fluid"
+                            <img src="{{ env('APP_URL') }}/img/travel-logo-4.jpeg" alt="login form" class="img-fluid"
                                 style="border-radius: 1rem 0 0 1rem; height: 100%; width: auto;" />
                         </div>
                         <div class="col-md-6 col-lg-7 d-flex align-items-center">
@@ -53,9 +53,9 @@
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <div class="d-flex align-items-center mb-3 pb-1">
-                                        <img src="/img/travel-logo-2.svg" alt="Logo"
+                                        <img src="/img/travel-logo-4.svg" alt="Logo"
                                             style="width: 50px; height: auto;" class="me-2 rounded">
-                                        <span class="h1 fw-bold mb-0 text-info">Travel Berkah Ilahi</span>
+                                        <span class="h1 fw-bold mb-0 text-info">Heri Travel Geronggang</span>
                                     </div>
 
                                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Silahkan Login </h5>

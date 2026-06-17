@@ -36,7 +36,7 @@
                         <label class="form-label" required>Nama Lengkap</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            <input type="text" name="name" class="form-control"
+                            <input type="text" name="customer_name" class="form-control"
                                 placeholder="Masukkan nama lengkap" required>
 
                         </div>
@@ -45,7 +45,7 @@
                         <label class="form-label">Nomor Telepon (WhatsApp)</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fab fa-whatsapp"></i></span>
-                            <input type="tel" class="form-control" placeholder="08xxxxxxxxxx" name="phone"
+                            <input type="tel" class="form-control" placeholder="08xxxxxxxxxx" name="customer_phone"
                                 required>
                         </div>
                     </div>

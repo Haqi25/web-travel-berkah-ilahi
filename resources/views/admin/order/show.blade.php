@@ -33,7 +33,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <p>Dibuat Pada: {{ $order->created_at->format('d-m-Y H:i') }} </p>
-                        <p>Nama Pelanggan: {{$order->user->name}}</p>
+                        <p>Nama Pelanggan: {{$order->customer_name}}</p>
                         <p>Status Pembayaran:
                             <span class="badge {{ $order->status == 'PAID' ? 'bg-success' : ($order->status == 'done' ? 'bg-success' : ($order->status == 'pending' ? 'bg-warning' : ($order->status == 'cancelled' ? 'bg-primary' : 'bg-danger'))) }}">
                                 {{ $order->status }}
@@ -56,7 +56,7 @@
                    
                          
                         <p>Metode Pembayaran: {{$order->payment_method}}</p>
-                        <p>Alamat:{{$order->user->pickup_address}} </p>
+                        <p>Alamat:{{$order->pickup_address}} </p>
                     </div>
                 </div>
             </div>

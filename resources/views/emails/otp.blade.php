@@ -28,11 +28,11 @@
                                     style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';max-width:100vw;padding:32px">
                                     <h1
                                         style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';color:#18181b;font-size:18px;font-weight:bold;margin-top:0;text-center">
-                                        Travel Berkah Ilahi</h1>
+                                        Heri Travel Geronggang</h1>
                                     <p
                                         style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-size:16px;line-height:1.5em;margin-top:0;text-align:left">
-                                        Kami menerima permintaan untuk login ke akun Travel Berkah
-                                        Ilahi Anda.
+                                        Kami menerima permintaan untuk login ke akun Heri Travel Geronggang
+                                     Anda.
                                         Gunakan kode OTP di bawah ini untuk melanjutkan proses login :
                                     </p>
                                     <table align="center" width="100%" cellpadding="0" cellspacing="0"
@@ -79,7 +79,7 @@
                                     <p
                                         style="box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-size:16px;line-height:1.5em;margin-top:0;text-align:left">
                                         Salam,<br>
-                                        Travel Berkah Ilahi</p>
+                                        Heri Travel Geronggang</p>
 
 
                                     <table width="100%" cellpadding="0" cellspacing="0" role="presentation"

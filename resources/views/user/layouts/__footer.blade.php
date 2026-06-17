@@ -4,7 +4,7 @@
             <div class="row g-4 mb-4">
                 <div class="col-lg-3">
                     <div class="footer-brand mb-3">
-                          <img src="/img/travel-logo-2.svg"  alt="Logo" style="width: 50px; height: auto;" class="me-2 rounded">
+                          <img src="/img/travel-logo-4.svg"  alt="Logo" style="width: 50px; height: auto;" class="me-2 rounded">
                         <span>Heri Travel Geronggang</span>
                     </div>
                     <p style="color: rgba(255, 255, 255, 0.8);">
