@@ -115,7 +115,7 @@
                                 
                             </td>
                             <td>
-                                 @if ($order->status == 'pending' && $order->payment_method == 'cash')
+                                 @if ($order->status == 'pending')
                                          <form action="{{route('orders.rejectOrder', $order->id)}}" method="POST">
                                              @csrf
                                              @method('PATCH')

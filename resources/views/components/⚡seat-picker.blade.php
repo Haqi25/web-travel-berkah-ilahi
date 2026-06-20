@@ -79,6 +79,19 @@ public function updatedSelectedSeats()
 ?>
 
 <div wire:poll.5s>
+    <div class="position-relative">
+          <div wire:loading.flex
+         wire:target="selectSeat"
+         class="position-absolute top-0 start-0 w-100 h-100 justify-content-center align-items-center bg-white bg-opacity-75"
+         style="z-index:999;">
+         
+        <div class="spinner-border text-info" role="status">
+        
+        </div>
+        <a style="padding-left: 10px;">Memproses...</a>
+    </div>
+    
+       
     <div class="row g-2">
         @for ($i = 1; $i <= $capacity; $i++)
             @php 
@@ -108,6 +121,6 @@ public function updatedSelectedSeats()
     @endforeach
     
     @error('seats') <span class="text-danger">{{ $message }}</span> @enderror
-    
+</div>
 </div>
 
