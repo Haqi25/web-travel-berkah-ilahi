@@ -745,3 +745,12 @@
   opacity: 1;
   transform: none;
 }
+@media (max-width: 768px) {
+  .slide-in-left {
+    transform: translateX(-2px);
+  }
+
+  .slide-in-right {
+    transform: translateX(2px);
+  }
+}
