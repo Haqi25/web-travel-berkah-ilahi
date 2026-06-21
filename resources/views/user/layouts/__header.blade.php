@@ -20,7 +20,7 @@
     <link href="{{env('APP_URL')}}/assets/guest/css/checkout.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-
+    <meta name="google-site-verification" content="FBKZKviizJETEhx6kVG4lAoGlkaSay_-cwyVqAMUxzk" />
     @livewireStyles
     @livewireScripts
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
