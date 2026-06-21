@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', [homeController::class, 'index'])->name('home');
 Route::get('/schedules', [scheduleController::class, 'index'])->name('schedules');
 
-Route::get('/booking/{id}', [paymentController::class, 'checkout'])->name('checkout');
+Route::get('/booking/{id}', [paymentController::class, 'checkout'])->name('booking');
 Route::get('/booking', function(){
     return redirect()->route('home');
 });

@@ -24,7 +24,7 @@
                     <h4>Kontak</h4>
                     <ul>
                         <li>082253553459</li>
-                        <li>info@heritravelgeronggang.com</li>
+                        <li>berkahillahi0043@gmail.com</li>
                         <li>Banjarmasin, Kalsel</li>
                     </ul>
                 </div>

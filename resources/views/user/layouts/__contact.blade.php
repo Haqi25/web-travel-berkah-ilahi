@@ -16,11 +16,11 @@
                         </div>
                     </a>
 
-                    <a href="mailto:info@travelberkahilahi.com" class="contact-item">
+                    <a href="mailto:berkahillahi0043@gmail.com" class="contact-item">
                         <i class="bi bi-envelope"></i>
                         <div>
                             <h5 class="mb-1 fw-bold">Email</h5>
-                            <p class="mb-0">info@travelberkahilahi.com</p>
+                            <p class="mb-0">berkahillahi0043@gmail.com</p>
                         </div>
                     </a>
 
@@ -28,7 +28,7 @@
                         <i class="bi bi-geo-alt"></i>
                         <div>
                             <h5 class="mb-1 fw-bold">Alamat</h5>
-                            <p class="mb-0">Jl. Ahmad Yani Km 5, Banjarmasin, Kalimantan Selatan</p>
+                            <p class="mb-0">JL.SUKAMARA RT.07 RW.02 LANDASAN ULIN UTARA KALIMANTAN SELATAN</p>
                         </div>
                     </div>
 

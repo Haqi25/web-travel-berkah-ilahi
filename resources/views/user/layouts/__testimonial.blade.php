@@ -53,7 +53,7 @@
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
                         </div>
-                        <p class="fst-italic mb-4">"Sudah 3 kali pakai jasa Travel Berkah Ilahi, selalu puas! Tepat waktu, aman, dan nyaman. Terima kasih!"</p>
+                        <p class="fst-italic mb-4">"Sudah 3 kali pakai jasa Heri Travel Geronggang, selalu puas! Tepat waktu, aman, dan nyaman. Terima kasih!"</p>
                         <div class="d-flex align-items-center">
                             <img src="{{asset('img/profile_picture.png')}}" alt="Dewi Kartika" class="author-image">
                             <div class="ms-3">
