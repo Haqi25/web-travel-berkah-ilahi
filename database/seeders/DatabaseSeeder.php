@@ -19,10 +19,11 @@ class DatabaseSeeder extends Seeder
        $this->call([
         //  RoleSeeder::class,
         //  UserSeeder::class,
-         DriversSeeder::class,
+        //  DriversSeeder::class,
         //  RoutesSeeder::class,
         // VehiclesSeeder::class,
         // SchedulesSeeder::class
+          AdminSeeder::class
        ]);
     }
 }
