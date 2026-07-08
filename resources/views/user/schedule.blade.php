@@ -87,7 +87,7 @@
                                         <img src="{{ asset('storage/' . $schedule->vehicle->image) }} "
                                             alt="Pantai Angsana" class="destination-image">
                                         <div class="destination-overlay">
-                                            <a href="{{ route('checkout', $schedule->id) }}"
+                                            <a href="{{ route('booking', $schedule->id) }}"
                                                 class="btn btn-light">Booking Jadwal <i
                                                     class="bi bi-chevron-right"></i></a>
                                         </div>
